@@ -1,0 +1,11 @@
+# Android / Gradle
+build/
+.gradle/
+local.properties
+*.apk
+*.aab
+.cxx/
+
+# Üretilen mobil varlıklar (kökte `make mobile-assets` ile üretilir)
+app/src/main/assets/catalog.db
+app/src/main/assets/model.onnx

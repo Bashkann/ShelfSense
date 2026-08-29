@@ -1,0 +1,580 @@
+{
+  "version": "0.3.0",
+  "updated": "2026-08-29",
+  "currency": "TRY",
+  "note": "Tek dogru kaynak. Blender isimleri, YOLO class_idx, LLM promptu ve veritabani bu dosyadan turetilir.",
+  "price_note": "Fiyatlar demo amacli placeholder. Urunler satin alindiginda gercek fiyat ve barkodla guncellenecek.",
+  "yolo_note": "class_idx urun seviyesindedir. Varyantlar YOLO sinifi ACMAZ - marka ayrimi barkodla yapilir.",
+  "shelves": [
+    {
+      "id": "shelf_dry_goods",
+      "name": "bakliyat ve temel gida",
+      "access_node": null
+    },
+    {
+      "id": "shelf_cleaning",
+      "name": "temizlik",
+      "access_node": null
+    },
+    {
+      "id": "shelf_dairy",
+      "name": "sut ve sarkuteri",
+      "access_node": null
+    },
+    {
+      "id": "shelf_produce",
+      "name": "meyve sebze",
+      "access_node": null
+    },
+    {
+      "id": "shelf_beverages",
+      "name": "icecekler",
+      "access_node": null
+    }
+  ],
+  "constraints": {
+    "laktozsuz": {
+      "type": "filter",
+      "field": "laktozsuz",
+      "value": true
+    },
+    "glutensiz": {
+      "type": "filter",
+      "field": "glutensiz",
+      "value": true
+    },
+    "sekersiz": {
+      "type": "filter",
+      "field": "sekersiz",
+      "value": true
+    },
+    "tam yagli": {
+      "type": "filter",
+      "field": "yag_orani",
+      "value": "tam"
+    },
+    "yarim yagli": {
+      "type": "filter",
+      "field": "yag_orani",
+      "value": "yarim"
+    },
+    "en ucuz": {
+      "type": "sort",
+      "field": "price",
+      "order": "asc"
+    },
+    "en pahali": {
+      "type": "sort",
+      "field": "price",
+      "order": "desc"
+    },
+    "buyuk boy": {
+      "type": "sort",
+      "field": "size",
+      "order": "desc"
+    },
+    "kucuk boy": {
+      "type": "sort",
+      "field": "size",
+      "order": "asc"
+    }
+  },
+  "products": [
+    {
+      "id": 1,
+      "class_idx": 0,
+      "name": "un",
+      "category": "temel_gida",
+      "shelf": "shelf_dry_goods",
+      "unit": "kg",
+      "synonyms": [
+        "un",
+        "unu",
+        "bugday unu",
+        "un paketi"
+      ],
+      "variants": [
+        {
+          "variant_id": 1001,
+          "brand": "Soke",
+          "size": 1000,
+          "size_unit": "g",
+          "price": 42.5,
+          "barcode": null,
+          "attrs": {
+            "glutensiz": false
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "class_idx": 1,
+      "name": "makarna",
+      "category": "temel_gida",
+      "shelf": "shelf_dry_goods",
+      "unit": "paket",
+      "synonyms": [
+        "makarna",
+        "makarnayi",
+        "spagetti",
+        "eriste",
+        "makarna paketi"
+      ],
+      "variants": [
+        {
+          "variant_id": 2001,
+          "brand": "Filiz",
+          "size": 500,
+          "size_unit": "g",
+          "price": 28.9,
+          "barcode": null,
+          "attrs": {
+            "glutensiz": false
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "class_idx": 2,
+      "name": "pirinc",
+      "category": "temel_gida",
+      "shelf": "shelf_dry_goods",
+      "unit": "kg",
+      "synonyms": [
+        "pirinc",
+        "pirinci",
+        "baldo",
+        "pilavlik"
+      ],
+      "variants": [
+        {
+          "variant_id": 3001,
+          "brand": "Yayla",
+          "size": 1000,
+          "size_unit": "g",
+          "price": 94.0,
+          "barcode": null,
+          "attrs": {
+            "glutensiz": true
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "class_idx": 3,
+      "name": "konserve",
+      "category": "temel_gida",
+      "shelf": "shelf_dry_goods",
+      "unit": "adet",
+      "synonyms": [
+        "konserve",
+        "konserveyi",
+        "konserve kutusu",
+        "bezelye konservesi"
+      ],
+      "variants": [
+        {
+          "variant_id": 4001,
+          "brand": "Tamek",
+          "size": 400,
+          "size_unit": "g",
+          "price": 44.5,
+          "barcode": null,
+          "attrs": {}
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "class_idx": 4,
+      "name": "sivi deterjan",
+      "category": "temizlik",
+      "shelf": "shelf_cleaning",
+      "unit": "litre",
+      "synonyms": [
+        "deterjan",
+        "deterjani",
+        "sivi deterjan",
+        "camasir deterjani"
+      ],
+      "variants": [
+        {
+          "variant_id": 5001,
+          "brand": "Omo",
+          "size": 1500,
+          "size_unit": "ml",
+          "price": 189.0,
+          "barcode": null,
+          "attrs": {}
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "class_idx": 5,
+      "name": "dis macunu",
+      "category": "temizlik",
+      "shelf": "shelf_cleaning",
+      "unit": "adet",
+      "synonyms": [
+        "dis macunu",
+        "macun",
+        "dis macununu"
+      ],
+      "variants": [
+        {
+          "variant_id": 6001,
+          "brand": "Colgate",
+          "size": 75,
+          "size_unit": "ml",
+          "price": 84.9,
+          "barcode": null,
+          "attrs": {}
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "class_idx": 6,
+      "name": "sampuan",
+      "category": "temizlik",
+      "shelf": "shelf_cleaning",
+      "unit": "adet",
+      "synonyms": [
+        "sampuan",
+        "sampuani",
+        "sac sampuani"
+      ],
+      "variants": [
+        {
+          "variant_id": 7001,
+          "brand": "Elidor",
+          "size": 500,
+          "size_unit": "ml",
+          "price": 138.0,
+          "barcode": null,
+          "attrs": {}
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "class_idx": 7,
+      "name": "sut",
+      "category": "sut_sarkuteri",
+      "shelf": "shelf_dairy",
+      "unit": "litre",
+      "synonyms": [
+        "sut",
+        "sutu",
+        "inek sutu",
+        "gunluk sut",
+        "sut kutusu"
+      ],
+      "variants": [
+        {
+          "variant_id": 8001,
+          "brand": "Pinar",
+          "size": 1000,
+          "size_unit": "ml",
+          "price": 52.0,
+          "barcode": null,
+          "attrs": {
+            "laktozsuz": false
+          }
+        },
+        {
+          "variant_id": 8002,
+          "brand": "Sek",
+          "size": 1000,
+          "size_unit": "ml",
+          "price": 47.5,
+          "barcode": null,
+          "attrs": {
+            "laktozsuz": false
+          }
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "class_idx": 8,
+      "name": "peynir",
+      "category": "sut_sarkuteri",
+      "shelf": "shelf_dairy",
+      "unit": "paket",
+      "synonyms": [
+        "peynir",
+        "peyniri",
+        "beyaz peynir",
+        "kasar"
+      ],
+      "variants": [
+        {
+          "variant_id": 9001,
+          "brand": "Pinar",
+          "size": 500,
+          "size_unit": "g",
+          "price": 182.0,
+          "barcode": null,
+          "attrs": {
+            "laktozsuz": false
+          }
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "class_idx": 9,
+      "name": "yogurt",
+      "category": "sut_sarkuteri",
+      "shelf": "shelf_dairy",
+      "unit": "adet",
+      "synonyms": [
+        "yogurt",
+        "yogurdu",
+        "yogurt kabi",
+        "sade yogurt"
+      ],
+      "variants": [
+        {
+          "variant_id": 10001,
+          "brand": "Sutas",
+          "size": 1000,
+          "size_unit": "g",
+          "price": 88.0,
+          "barcode": null,
+          "attrs": {
+            "laktozsuz": false
+          }
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "class_idx": 10,
+      "name": "elma",
+      "category": "meyve_sebze",
+      "shelf": "shelf_produce",
+      "unit": "kg",
+      "synonyms": [
+        "elma",
+        "elmayi",
+        "kirmizi elma",
+        "yesil elma"
+      ],
+      "variants": [
+        {
+          "variant_id": 11001,
+          "brand": null,
+          "size": 1000,
+          "size_unit": "g",
+          "price": 46.0,
+          "barcode": null,
+          "attrs": {}
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "class_idx": 11,
+      "name": "brokoli",
+      "category": "meyve_sebze",
+      "shelf": "shelf_produce",
+      "unit": "adet",
+      "synonyms": [
+        "brokoli",
+        "brokoliyi"
+      ],
+      "variants": [
+        {
+          "variant_id": 12001,
+          "brand": null,
+          "size": null,
+          "size_unit": null,
+          "price": 58.0,
+          "barcode": null,
+          "attrs": {}
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "class_idx": 12,
+      "name": "karpuz",
+      "category": "meyve_sebze",
+      "shelf": "shelf_produce",
+      "unit": "adet",
+      "synonyms": [
+        "karpuz",
+        "karpuzu"
+      ],
+      "variants": [
+        {
+          "variant_id": 13001,
+          "brand": null,
+          "size": null,
+          "size_unit": null,
+          "price": 115.0,
+          "barcode": null,
+          "attrs": {}
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "class_idx": 13,
+      "name": "muz",
+      "category": "meyve_sebze",
+      "shelf": "shelf_produce",
+      "unit": "kg",
+      "synonyms": [
+        "muz",
+        "muzu"
+      ],
+      "variants": [
+        {
+          "variant_id": 14001,
+          "brand": null,
+          "size": 1000,
+          "size_unit": "g",
+          "price": 89.0,
+          "barcode": null,
+          "attrs": {}
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "class_idx": 14,
+      "name": "ananas",
+      "category": "meyve_sebze",
+      "shelf": "shelf_produce",
+      "unit": "adet",
+      "synonyms": [
+        "ananas",
+        "ananasi"
+      ],
+      "variants": [
+        {
+          "variant_id": 15001,
+          "brand": null,
+          "size": null,
+          "size_unit": null,
+          "price": 175.0,
+          "barcode": null,
+          "attrs": {}
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "class_idx": 15,
+      "name": "kola",
+      "category": "icecek",
+      "shelf": "shelf_beverages",
+      "unit": "adet",
+      "synonyms": [
+        "kola",
+        "kolayi",
+        "gazoz",
+        "kola sisesi"
+      ],
+      "variants": [
+        {
+          "variant_id": 16001,
+          "brand": "Coca-Cola",
+          "size": 1000,
+          "size_unit": "ml",
+          "price": 54.0,
+          "barcode": null,
+          "attrs": {
+            "sekersiz": false
+          }
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "class_idx": 16,
+      "name": "fanta",
+      "category": "icecek",
+      "shelf": "shelf_beverages",
+      "unit": "adet",
+      "synonyms": [
+        "fanta",
+        "fantayi",
+        "portakalli gazoz"
+      ],
+      "variants": [
+        {
+          "variant_id": 17001,
+          "brand": "Fanta",
+          "size": 1000,
+          "size_unit": "ml",
+          "price": 54.0,
+          "barcode": null,
+          "attrs": {
+            "sekersiz": false
+          }
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "class_idx": 17,
+      "name": "limonata",
+      "category": "icecek",
+      "shelf": "shelf_beverages",
+      "unit": "adet",
+      "synonyms": [
+        "limonata",
+        "limonatayi"
+      ],
+      "variants": [
+        {
+          "variant_id": 18001,
+          "brand": "Uludag",
+          "size": 1000,
+          "size_unit": "ml",
+          "price": 49.9,
+          "barcode": null,
+          "attrs": {
+            "sekersiz": false
+          }
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "class_idx": 18,
+      "name": "meyve suyu",
+      "category": "icecek",
+      "shelf": "shelf_beverages",
+      "unit": "adet",
+      "synonyms": [
+        "meyve suyu",
+        "meyve suyunu",
+        "visne suyu",
+        "portakal suyu"
+      ],
+      "variants": [
+        {
+          "variant_id": 19001,
+          "brand": "Dimes",
+          "size": 1000,
+          "size_unit": "ml",
+          "price": 62.0,
+          "barcode": null,
+          "attrs": {
+            "sekersiz": false
+          }
+        }
+      ]
+    }
+  ],
+  "scope_note": "MVP kapsami: urun basina tek varyant, istisna sut (2 marka, fiyat karsilastirma senaryosu icin). laktozsuz/yag_orani ayrimi MVP disi - alanlar duruyor, degerler sabit. Etiket okuma (OCR) MVP kapsaminda olmadigi icin laktoz ayrimi yapilamaz."
+}

@@ -1,0 +1,17 @@
+{
+  "note": "Ornek sesli liste metinleri. Asistan ayristirici (assistant/) girdisi; catalog.json synonyms ve constraints alanlarini tetikler.",
+  "lists": [
+    {
+      "id": "list_1",
+      "text": "bir kilo un, iki paket makarna ve en ucuz sutten bir tane alalim"
+    },
+    {
+      "id": "list_2",
+      "text": "yarim kilo peynir, bir yogurt, kirmizi elma bir de bir sise kola olsun"
+    },
+    {
+      "id": "list_3",
+      "text": "sivi deterjan, dis macunu, sampuan ve buyuk boy meyve suyu lazim"
+    }
+  ]
+}

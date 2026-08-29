@@ -1,0 +1,7 @@
+# Model (perception) bağımlılıkları — SADECE model eğitecek kişi kurar.
+# PyTorch ~2 GB; backend/rota/asistan geliştiricisi bunu KURMAZ.
+torch
+ultralytics
+onnx
+onnxruntime
+opencv-python

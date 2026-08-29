@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.egg-info/
+.venv/
+.pytest_cache/
+
+# Ortam
+.env
+
+# Model ağırlıkları / çıktılar
+*.pt
+*.onnx
+runs/
+outputs/
+
+# Üretilen veri (commit edilmez)
+data/images/
+data/raw/
+data/generated/
+*.db
+*.mp4
+
+# Blender yedek
+*.blend1
+
+# Üretilen — script çıktısı, elle tutulmaz
+perception/dataset/data.yaml
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+
+# Yerel planlama/spec dokümanı (public repoya girmesin)
+shelfsense-repo-yapisi.pdf

@@ -1,0 +1,13 @@
+# Backend / rota / asistan geliştiricisi bağımlılıkları.
+# Model (perception) bağımlılıkları AYRI: requirements-ml.txt.
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+psycopg2-binary
+python-dotenv
+rapidfuzz
+networkx
+httpx
+pytest
+ruff

@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shelfsense"
+version = "0.1.0"
+description = "Görme engelli kullanıcılar için sesli market alışveriş asistanı"
+requires-python = ">=3.11"
+# Çalışma zamanı bağımlılıkları requirements.txt'te tutulur (bkz. README).
+dependencies = []
+
+[tool.setuptools]
+# perception/ KASITLI olarak paket dışında: çalışan sistem onu import etmez,
+# üretim aracıdır (bkz. perception/README.md). blender/ ve mobile/ de dışarıda.
+# Alt paketler (contracts, assistant, routing, db, backend) editable kurulumda
+# disk üzerinden çözülür.
+packages = ["shelfsense"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
