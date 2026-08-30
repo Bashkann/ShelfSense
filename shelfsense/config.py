@@ -14,6 +14,8 @@ class Settings(BaseSettings):
     database_url: str = ""
     llm_api_key: str = ""
     llm_base_url: str = ""
+    pangu_project_id: str = ""
+    pangu_deployment_id: str = ""
     model_path: str = ""
 
 

@@ -8,10 +8,10 @@ from pydantic import BaseModel
 
 
 class ParsedItem(BaseModel):
-    """LLM/kural ayrıştırıcının çözdüğü tek alışveriş kalemi.
+    """Ayrıştırıcının çözdüğü tek alışveriş kalemi.
 
     Girdi: kullanıcının ham ifadesi (raw). Çıktı: catalog.json'a bağlanmış
-    ürün (product_id) + miktar + kısıt anahtarları.
+    ürün + miktar + kısıtlar + seçilen varyant.
     """
     raw: str
     product_id: int | None = None  # catalog.json id; çözülemezse None
@@ -20,6 +20,11 @@ class ParsedItem(BaseModel):
     unit: str | None = None
     # catalog.json "constraints" anahtarları, örn. "en ucuz", "laktozsuz"
     constraints: list[str] = []
+    # Katalogda KARŞILANAMAYAN kısıtlar (örn. "sekersiz" — böyle varyant yok).
+    # Boş değilse: kullanıcı sesli UYARILIR ve en yakın ürün onayına sunulur.
+    # Sessizce kısıtı düşürmek erişilebilirlik açısından kabul edilemez.
+    unmet_constraints: list[str] = []
+    variant_id: int | None = None  # constraints.py'nin seçtiği varyant
     confidence: float | None = None  # KARAR GEREKLİ: eşik altı → unresolved mı?
 
 

@@ -22,3 +22,17 @@ def test_every_placement_product_exists_in_catalog(store_min_path, catalog):
         assert placement.product_id in catalog_ids, (
             f"product_id {placement.product_id} catalog.json'da yok"
         )
+
+
+def test_one_product_per_shelf_block(store_min_path):
+    """MVP sadeleştirmesi: her raf bloğunda tek ürün (rapor §3, Bu Hafta).
+
+    Bu kural başlangıç aşamasına aittir; raf içi dikey yerleşim MVP sonrası
+    devreye girince bu test güncellenir.
+    """
+    store = StoreMap.model_validate_json(store_min_path.read_text("utf-8"))
+    seen: dict[str, int] = {}
+    for placement in store.placements:
+        seen[placement.shelf_block_id] = seen.get(placement.shelf_block_id, 0) + 1
+    fazla = {block: n for block, n in seen.items() if n > 1}
+    assert not fazla, f"raf bloğu başına tek ürün olmalı, fazlası: {fazla}"

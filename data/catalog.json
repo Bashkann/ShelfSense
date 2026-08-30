@@ -8,28 +8,23 @@
   "shelves": [
     {
       "id": "shelf_dry_goods",
-      "name": "bakliyat ve temel gida",
-      "access_node": null
+      "name": "bakliyat ve temel gida"
     },
     {
       "id": "shelf_cleaning",
-      "name": "temizlik",
-      "access_node": null
+      "name": "temizlik"
     },
     {
       "id": "shelf_dairy",
-      "name": "sut ve sarkuteri",
-      "access_node": null
+      "name": "sut ve sarkuteri"
     },
     {
       "id": "shelf_produce",
-      "name": "meyve sebze",
-      "access_node": null
+      "name": "meyve sebze"
     },
     {
       "id": "shelf_beverages",
-      "name": "icecekler",
-      "access_node": null
+      "name": "icecekler"
     }
   ],
   "constraints": {

@@ -3,40 +3,42 @@
   "entrance_node_id": "n_entrance",
   "nodes": [
     { "id": "n_entrance", "x": 0.0, "y": 0.0, "kind": "giris" },
-    { "id": "n_j1", "x": 0.0, "y": 4.0, "kind": "kavsak" },
-    { "id": "n_dry", "x": 0.0, "y": 6.0, "kind": "raf-onu" },
-    { "id": "n_clean", "x": 0.0, "y": 9.0, "kind": "raf-onu" },
-    { "id": "n_j2", "x": 5.0, "y": 4.0, "kind": "kavsak" },
-    { "id": "n_dairy", "x": 5.0, "y": 6.0, "kind": "raf-onu" },
-    { "id": "n_bev", "x": 5.0, "y": 9.0, "kind": "raf-onu" },
-    { "id": "n_j_top", "x": 2.5, "y": 12.0, "kind": "kavsak" }
+    { "id": "n_a1_1", "x": 0.0, "y": 4.0, "kind": "raf-onu" },
+    { "id": "n_a1_2", "x": 0.0, "y": 7.0, "kind": "raf-onu" },
+    { "id": "n_a1_3", "x": 0.0, "y": 10.0, "kind": "raf-onu" },
+    { "id": "n_a2_1", "x": 5.0, "y": 4.0, "kind": "raf-onu" },
+    { "id": "n_a2_2", "x": 5.0, "y": 7.0, "kind": "raf-onu" },
+    { "id": "n_a2_3", "x": 5.0, "y": 10.0, "kind": "raf-onu" },
+    { "id": "n_top", "x": 2.5, "y": 13.0, "kind": "kavsak" }
   ],
   "edges": [
-    { "from_id": "n_entrance", "to_id": "n_j1", "weight": 4.0 },
-    { "from_id": "n_j1", "to_id": "n_dry", "weight": 2.0 },
-    { "from_id": "n_dry", "to_id": "n_clean", "weight": 3.0 },
-    { "from_id": "n_j1", "to_id": "n_j2", "weight": 5.0 },
-    { "from_id": "n_j2", "to_id": "n_dairy", "weight": 2.0 },
-    { "from_id": "n_dairy", "to_id": "n_bev", "weight": 3.0 },
-    { "from_id": "n_clean", "to_id": "n_j_top", "weight": 3.9 },
-    { "from_id": "n_bev", "to_id": "n_j_top", "weight": 3.9 }
+    { "from_id": "n_entrance", "to_id": "n_a1_1", "weight": 4.0 },
+    { "from_id": "n_entrance", "to_id": "n_a2_1", "weight": 6.4 },
+    { "from_id": "n_a1_1", "to_id": "n_a1_2", "weight": 3.0 },
+    { "from_id": "n_a1_2", "to_id": "n_a1_3", "weight": 3.0 },
+    { "from_id": "n_a2_1", "to_id": "n_a2_2", "weight": 3.0 },
+    { "from_id": "n_a2_2", "to_id": "n_a2_3", "weight": 3.0 },
+    { "from_id": "n_a1_3", "to_id": "n_top", "weight": 3.9 },
+    { "from_id": "n_a2_3", "to_id": "n_top", "weight": 3.9 }
   ],
   "aisles": [
-    { "id": "aisle_1", "name": "1. koridor - temel gida ve temizlik" },
-    { "id": "aisle_2", "name": "2. koridor - sut urunleri ve icecek" }
+    { "id": "aisle_1", "name": "1. reyon - temel gida ve temizlik" },
+    { "id": "aisle_2", "name": "2. reyon - sut urunleri ve icecek" }
   ],
   "shelf_blocks": [
-    { "id": "shelf_dry_goods__b01", "aisle_id": "aisle_1", "x": -1.0, "y": 6.0, "w": 2.0, "h": 1.0, "facing": "+x", "access_node_id": "n_dry" },
-    { "id": "shelf_cleaning__b01", "aisle_id": "aisle_1", "x": -1.0, "y": 9.0, "w": 2.0, "h": 1.0, "facing": "+x", "access_node_id": "n_clean" },
-    { "id": "shelf_dairy__b01", "aisle_id": "aisle_2", "x": 6.0, "y": 6.0, "w": 2.0, "h": 1.0, "facing": "-x", "access_node_id": "n_dairy" },
-    { "id": "shelf_beverages__b01", "aisle_id": "aisle_2", "x": 6.0, "y": 9.0, "w": 2.0, "h": 1.0, "facing": "-x", "access_node_id": "n_bev" }
+    { "id": "shelf_dry_goods__b01", "aisle_id": "aisle_1", "x": -1.0, "y": 4.0, "w": 2.0, "h": 1.0, "facing": "+x", "access_node_id": "n_a1_1" },
+    { "id": "shelf_dry_goods__b02", "aisle_id": "aisle_1", "x": -1.0, "y": 7.0, "w": 2.0, "h": 1.0, "facing": "+x", "access_node_id": "n_a1_2" },
+    { "id": "shelf_cleaning__b01", "aisle_id": "aisle_1", "x": -1.0, "y": 10.0, "w": 2.0, "h": 1.0, "facing": "+x", "access_node_id": "n_a1_3" },
+    { "id": "shelf_dairy__b01", "aisle_id": "aisle_2", "x": 6.0, "y": 4.0, "w": 2.0, "h": 1.0, "facing": "-x", "access_node_id": "n_a2_1" },
+    { "id": "shelf_dairy__b02", "aisle_id": "aisle_2", "x": 6.0, "y": 7.0, "w": 2.0, "h": 1.0, "facing": "-x", "access_node_id": "n_a2_2" },
+    { "id": "shelf_beverages__b01", "aisle_id": "aisle_2", "x": 6.0, "y": 10.0, "w": 2.0, "h": 1.0, "facing": "-x", "access_node_id": "n_a2_3" }
   ],
   "placements": [
-    { "product_id": 1, "shelf_block_id": "shelf_dry_goods__b01", "slot": "A1" },
-    { "product_id": 2, "shelf_block_id": "shelf_dry_goods__b01", "slot": "A2" },
-    { "product_id": 5, "shelf_block_id": "shelf_cleaning__b01", "slot": "B1" },
-    { "product_id": 8, "shelf_block_id": "shelf_dairy__b01", "slot": "C1" },
-    { "product_id": 9, "shelf_block_id": "shelf_dairy__b01", "slot": "C2" },
-    { "product_id": 16, "shelf_block_id": "shelf_beverages__b01", "slot": "D1" }
+    { "product_id": 1, "shelf_block_id": "shelf_dry_goods__b01", "slot": "1" },
+    { "product_id": 2, "shelf_block_id": "shelf_dry_goods__b02", "slot": "1" },
+    { "product_id": 5, "shelf_block_id": "shelf_cleaning__b01", "slot": "1" },
+    { "product_id": 8, "shelf_block_id": "shelf_dairy__b01", "slot": "1" },
+    { "product_id": 9, "shelf_block_id": "shelf_dairy__b02", "slot": "1" },
+    { "product_id": 16, "shelf_block_id": "shelf_beverages__b01", "slot": "1" }
   ]
 }
