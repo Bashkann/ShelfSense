@@ -53,7 +53,12 @@ Her iş kendi alan dalında: `feat/<alan>` (örn. `feat/routing`,
 python -m venv .venv && source .venv/bin/activate
 pip install -e . && pip install -r requirements.txt
 cp .env.example .env
+docker compose up -d db
+docker compose ps
+python -m alembic upgrade head
 ```
+
+`docker compose ps` çıktısında `db` servisinin `healthy` olduğundan emin olun.
 
 ### 2) Model (perception) geliştiricisi
 
