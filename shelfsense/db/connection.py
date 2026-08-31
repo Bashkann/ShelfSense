@@ -1,13 +1,29 @@
-"""PostgreSQL bağlantı yönetimi.
+"""SQLAlchemy bağlantı ve oturum yönetimi."""
 
-Saf Python iş mantığı modülü. DATABASE_URL'den (config.py) bağlantı açar;
-psycopg2 tabanlı. Backend bu modül üzerinden veriye erişir.
-"""
+from collections.abc import Iterator
+
+from sqlalchemy import create_engine
+from sqlalchemy.orm import Session, sessionmaker
+
+from shelfsense.config import get_settings
+
+settings = get_settings()
+
+engine = create_engine(
+    settings.database_url,
+    pool_pre_ping=True,
+)
+
+SessionFactory = sessionmaker(
+    bind=engine,
+    class_=Session,
+    autoflush=False,
+    expire_on_commit=False,
+)
 
 
-def get_connection():
-    """DATABASE_URL kullanarak yeni bir PostgreSQL bağlantısı açar.
+def get_session() -> Iterator[Session]:
+    """İstek için veritabanı oturumu oluşturur ve işlem sonunda kapatır."""
 
-    Girdi: yok (config.py'den okur). Çıktı: psycopg2 bağlantı nesnesi.
-    """
-    raise NotImplementedError
+    with SessionFactory() as session:
+        yield session
