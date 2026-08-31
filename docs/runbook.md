@@ -12,6 +12,26 @@ pytest tests/test_contracts.py
 ```
 
 ## Veritabanı
+
+`.env.example` dosyasını kopyalayarak yerel yapılandırmayı oluşturun, PostgreSQL
+servisini başlatın ve container sağlığını kontrol edin:
+
+```bash
+cp .env.example .env
+docker compose up -d db
+docker compose ps
+```
+
+`docker compose ps` çıktısında `db` servisi `healthy` olmalıdır. Ardından
+migration'ları uygulayın:
+
+```bash
+python -m alembic upgrade head
+```
+
+Yerel bağlantı portu `POSTGRES_PORT` ile değiştirilirse `DATABASE_URL` içindeki
+port da aynı değere güncellenmelidir.
+
 ### Katalog yükleme (load_catalog)
 ### Mağaza yükleme (load_store)
 
