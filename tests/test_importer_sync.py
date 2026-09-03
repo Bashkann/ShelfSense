@@ -132,6 +132,35 @@ def test_missing_shelf_threshold_aborts_and_preserves_database_state() -> None:
     assert repository.apply_calls == 1
 
 
+def test_all_three_shelves_missing_aborts_at_default_count_boundary() -> None:
+    initial = bundle_data()
+    _add_shelf(initial, "shelf-2")
+    _add_shelf(initial, "shelf-3")
+    repository = MemoryRepository()
+    import_bundle(
+        make_bundle(initial),
+        repository,
+        DEFAULT_THRESHOLDS,
+        store_name="Test Store",
+        uuid_factory=SequentialUUIDs(),
+    )
+    reduced = deepcopy(initial)
+    reduced["store"]["shelf_blocks"] = []
+    reduced["store"]["placements"] = []
+
+    with pytest.raises(ImportAborted) as caught:
+        import_bundle(
+            make_bundle(reduced),
+            repository,
+            DEFAULT_THRESHOLDS,
+            uuid_factory=SequentialUUIDs(1000),
+        )
+
+    assert caught.value.category == "MISSING_SHELF_THRESHOLD_EXCEEDED"
+    assert caught.value.report.entries[-1].details["baseline"] == 3
+    assert caught.value.report.entries[-1].details["all_missing"] is True
+
+
 def test_missing_edge_threshold_aborts() -> None:
     full_data = bundle_data()
     for number in range(2, 5):
@@ -160,6 +189,33 @@ def test_missing_edge_threshold_aborts() -> None:
     assert repository.state == before
 
 
+def test_all_two_edges_missing_aborts_at_default_count_boundary() -> None:
+    initial = bundle_data()
+    _add_node_and_edge(initial, 2)
+    repository = MemoryRepository()
+    import_bundle(
+        make_bundle(initial),
+        repository,
+        DEFAULT_THRESHOLDS,
+        store_name="Test Store",
+        uuid_factory=SequentialUUIDs(),
+    )
+    reduced = deepcopy(initial)
+    reduced["store"]["edges"] = []
+
+    with pytest.raises(ImportAborted) as caught:
+        import_bundle(
+            make_bundle(reduced),
+            repository,
+            DEFAULT_THRESHOLDS,
+            uuid_factory=SequentialUUIDs(1000),
+        )
+
+    assert caught.value.category == "MISSING_EDGE_THRESHOLD_EXCEEDED"
+    assert caught.value.report.entries[-1].details["baseline"] == 2
+    assert caught.value.report.entries[-1].details["all_missing"] is True
+
+
 def test_missing_edge_under_threshold_is_hard_deleted() -> None:
     full_data = bundle_data()
     _add_node_and_edge(full_data, 2)
@@ -186,15 +242,17 @@ def test_missing_edge_under_threshold_is_hard_deleted() -> None:
 
 
 def test_edge_direction_change_is_correlated_for_reporting() -> None:
+    initial = bundle_data()
+    _add_node_and_edge(initial, 2)
     repository = MemoryRepository()
     import_bundle(
-        make_bundle(),
+        make_bundle(initial),
         repository,
         DEFAULT_THRESHOLDS,
         store_name="Test Store",
         uuid_factory=SequentialUUIDs(),
     )
-    directed = bundle_data()
+    directed = deepcopy(initial)
     directed["store"]["edges"][0]["is_bidirectional"] = False
 
     report = import_bundle(
@@ -205,8 +263,10 @@ def test_edge_direction_change_is_correlated_for_reporting() -> None:
     )
 
     assert "EDGE_TOPOLOGY_OR_DIRECTION_CHANGED" in categories(report)
-    assert len(repository.state.edges) == 1
-    assert next(iter(repository.state.edges.values())).is_bidirectional is False
+    assert len(repository.state.edges) == 2
+    assert (
+        sum(not edge.is_bidirectional for edge in repository.state.edges.values()) == 1
+    )
 
 
 def test_missing_navigation_node_is_retained_and_reported() -> None:
@@ -364,17 +424,57 @@ def test_missing_placement_threshold_aborts() -> None:
     assert repository.state == before
 
 
-def test_missing_placement_is_deleted_with_bridge_and_warning() -> None:
+def test_all_five_placements_missing_aborts_at_default_count_boundary() -> None:
+    initial = bundle_data()
+    for number in range(2, 6):
+        _add_shelf(initial, f"shelf-{number}")
+        initial["store"]["placements"].append(
+            {
+                "product_id": 1,
+                "shelf_block_id": f"shelf-{number}",
+                "slot": "A",
+            }
+        )
     repository = MemoryRepository()
     import_bundle(
-        make_bundle(),
+        make_bundle(initial),
         repository,
         DEFAULT_THRESHOLDS,
         store_name="Test Store",
         uuid_factory=SequentialUUIDs(),
     )
-    reduced = bundle_data()
+    reduced = deepcopy(initial)
     reduced["store"]["placements"] = []
+
+    with pytest.raises(ImportAborted) as caught:
+        import_bundle(
+            make_bundle(reduced),
+            repository,
+            DEFAULT_THRESHOLDS,
+            uuid_factory=SequentialUUIDs(1000),
+        )
+
+    assert caught.value.category == "MISSING_PLACEMENT_THRESHOLD_EXCEEDED"
+    assert caught.value.report.entries[-1].details["baseline"] == 5
+    assert caught.value.report.entries[-1].details["all_missing"] is True
+
+
+def test_partial_small_store_disappearance_still_uses_and_threshold() -> None:
+    initial = bundle_data()
+    _add_shelf(initial, "shelf-2")
+    initial["store"]["placements"].append(
+        {"product_id": 1, "shelf_block_id": "shelf-2", "slot": "A"}
+    )
+    repository = MemoryRepository()
+    import_bundle(
+        make_bundle(initial),
+        repository,
+        DEFAULT_THRESHOLDS,
+        store_name="Test Store",
+        uuid_factory=SequentialUUIDs(),
+    )
+    reduced = deepcopy(initial)
+    reduced["store"]["placements"] = reduced["store"]["placements"][:1]
 
     report = import_bundle(
         make_bundle(reduced),
@@ -383,24 +483,91 @@ def test_missing_placement_is_deleted_with_bridge_and_warning() -> None:
         uuid_factory=SequentialUUIDs(1000),
     )
 
-    assert repository.state.placements == {}
-    assert repository.state.placement_levels == set()
+    threshold = report.thresholds["product_placements"]
+    assert threshold.baseline == 2
+    assert threshold.missing_count == 1
+    assert str(threshold.missing_ratio) == "0.5"
     assert report.tables["product_placements"].deleted == 1
-    assert "PRODUCTS_WITH_NO_PLACEMENT_AFTER_IMPORT" in categories(report)
 
 
-def test_zero_placement_shelf_warns_and_retains_existing_levels() -> None:
+def test_zero_baseline_does_not_trigger_catastrophic_missing_guard() -> None:
+    data = bundle_data()
+    data["store"]["placements"] = []
     repository = MemoryRepository()
-    import_bundle(
-        make_bundle(),
+    first = import_bundle(
+        make_bundle(data),
         repository,
         DEFAULT_THRESHOLDS,
         store_name="Test Store",
         uuid_factory=SequentialUUIDs(),
     )
-    level_ids = {level.id for level in repository.state.levels.values()}
-    reduced = bundle_data()
-    reduced["store"]["placements"] = []
+    second = import_bundle(
+        make_bundle(data),
+        repository,
+        DEFAULT_THRESHOLDS,
+        uuid_factory=SequentialUUIDs(1000),
+    )
+
+    assert first.thresholds["product_placements"].baseline == 0
+    assert second.thresholds["product_placements"].baseline == 0
+    assert second.thresholds["product_placements"].missing_count == 0
+
+
+def test_missing_placement_is_deleted_with_bridge_and_warning() -> None:
+    initial = bundle_data()
+    _add_shelf(initial, "shelf-2")
+    initial["products"]["products"].append(
+        {"id": 2, "name": "Second", "category": "test", "unit": "adet"}
+    )
+    initial["store"]["placements"].append(
+        {"product_id": 2, "shelf_block_id": "shelf-2", "slot": "A"}
+    )
+    repository = MemoryRepository()
+    import_bundle(
+        make_bundle(initial),
+        repository,
+        DEFAULT_THRESHOLDS,
+        store_name="Test Store",
+        uuid_factory=SequentialUUIDs(),
+    )
+    reduced = deepcopy(initial)
+    reduced["store"]["placements"] = reduced["store"]["placements"][1:]
+
+    report = import_bundle(
+        make_bundle(reduced),
+        repository,
+        DEFAULT_THRESHOLDS,
+        uuid_factory=SequentialUUIDs(1000),
+    )
+
+    assert len(repository.state.placements) == 1
+    assert len(repository.state.placement_levels) == 1
+    assert report.tables["product_placements"].deleted == 1
+    assert "PRODUCTS_WITH_NO_PLACEMENT_AFTER_IMPORT" in categories(report)
+
+
+def test_zero_placement_shelf_warns_and_retains_existing_levels() -> None:
+    initial = bundle_data()
+    _add_shelf(initial, "shelf-2")
+    initial["store"]["placements"].append(
+        {"product_id": 1, "shelf_block_id": "shelf-2", "slot": "A"}
+    )
+    repository = MemoryRepository()
+    import_bundle(
+        make_bundle(initial),
+        repository,
+        DEFAULT_THRESHOLDS,
+        store_name="Test Store",
+        uuid_factory=SequentialUUIDs(),
+    )
+    shelf_id = repository.state.shelves["shelf-1"].id
+    level_ids = {
+        level.id
+        for (current_shelf_id, _), level in repository.state.levels.items()
+        if current_shelf_id == shelf_id
+    }
+    reduced = deepcopy(initial)
+    reduced["store"]["placements"] = reduced["store"]["placements"][1:]
 
     report = import_bundle(
         make_bundle(reduced),

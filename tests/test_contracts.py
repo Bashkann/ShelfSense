@@ -25,6 +25,21 @@ def test_every_placement_product_exists_in_mapping(store_min_path, product_mappi
         )
 
 
+def test_mock_placements_match_product_mapping_shelf_category(
+    store_min_path, product_mapping
+):
+    """Mock shelf assignments stay coherent; importer does not use this mapping."""
+
+    store = StoreMap.model_validate_json(store_min_path.read_text("utf-8"))
+    products = {product["id"]: product for product in product_mapping["products"]}
+    for placement in store.placements:
+        mapped_shelf = products[placement.product_id]["shelf"]
+        assert placement.shelf_block_id.startswith(f"{mapped_shelf}__"), (
+            f"product_id {placement.product_id} maps to {mapped_shelf}, "
+            f"not {placement.shelf_block_id}"
+        )
+
+
 def test_one_product_per_shelf_block(store_min_path):
     """MVP sadeleştirmesi: her raf bloğunda tek ürün (rapor §3, Bu Hafta).
 

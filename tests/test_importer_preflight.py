@@ -234,6 +234,7 @@ def test_raf_onu_is_the_only_node_type_mapping() -> None:
 
 def test_zero_entrance_aborts_before_database_read() -> None:
     data = bundle_data()
+    data["store"].pop("entrance_node_id")
     data["store"]["nodes"][0]["kind"] = "kavsak"
     repository = MemoryRepository()
 
@@ -248,6 +249,89 @@ def test_zero_entrance_aborts_before_database_read() -> None:
     assert caught.value.category == "ZERO_ENTRANCE_NODES"
     assert repository.read_calls == 0
     assert repository.apply_calls == 0
+
+
+def test_valid_legacy_entrance_node_id_is_accepted() -> None:
+    plan = preflight_bundle(
+        make_bundle(),
+        MemoryRepository(),
+        DEFAULT_THRESHOLDS,
+        store_name="Test Store",
+        uuid_factory=SequentialUUIDs(),
+    )
+
+    assert plan.report.preflight_status == "PASS"
+
+
+def test_nonexistent_legacy_entrance_node_id_aborts_before_database_read() -> None:
+    data = bundle_data()
+    data["store"]["entrance_node_id"] = "missing-entrance"
+    repository = MemoryRepository()
+
+    with pytest.raises(ImportAborted) as caught:
+        preflight_bundle(
+            make_bundle(data),
+            repository,
+            DEFAULT_THRESHOLDS,
+            store_name="Test Store",
+        )
+
+    assert caught.value.category == "INVALID_SOURCE_REFERENCE"
+    assert caught.value.report.entries[-1].details == {
+        "offending_record": {"entrance_node_id": "missing-entrance"},
+        "missing_reference": "missing-entrance",
+        "expected_source_collection": "store.json.nodes",
+    }
+    assert repository.read_calls == 0
+
+
+def test_legacy_entrance_node_id_must_reference_a_normalized_giris_node() -> None:
+    data = bundle_data()
+    data["store"]["entrance_node_id"] = "node-shelf"
+    repository = MemoryRepository()
+
+    with pytest.raises(ImportAborted) as caught:
+        preflight_bundle(
+            make_bundle(data),
+            repository,
+            DEFAULT_THRESHOLDS,
+            store_name="Test Store",
+        )
+
+    assert caught.value.category == "INVALID_SOURCE_REFERENCE"
+    assert caught.value.report.entries[-1].details["expected_node_type"] == "giris"
+    assert caught.value.report.entries[-1].details["actual_node_type"] == "raf_onu"
+    assert repository.read_calls == 0
+
+
+def test_multiple_giris_nodes_remain_valid() -> None:
+    data = bundle_data()
+    data["store"]["nodes"][1]["kind"] = "giris"
+
+    plan = preflight_bundle(
+        make_bundle(data),
+        MemoryRepository(),
+        DEFAULT_THRESHOLDS,
+        store_name="Test Store",
+        uuid_factory=SequentialUUIDs(),
+    )
+
+    assert sum(node.node_type == "giris" for node in plan.nodes) == 2
+
+
+def test_absent_legacy_entrance_node_id_is_valid_when_a_giris_exists() -> None:
+    data = bundle_data()
+    data["store"].pop("entrance_node_id")
+
+    plan = preflight_bundle(
+        make_bundle(data),
+        MemoryRepository(),
+        DEFAULT_THRESHOLDS,
+        store_name="Test Store",
+        uuid_factory=SequentialUUIDs(),
+    )
+
+    assert any(node.node_type == "giris" for node in plan.nodes)
 
 
 @pytest.mark.parametrize(
@@ -419,7 +503,65 @@ def test_self_referencing_edge_fails_during_preflight() -> None:
 def test_source_bundle_accepts_non_authoritative_debug_fields() -> None:
     data = bundle_data()
     data["store"]["placements"][0].update(product_name="debug", side="debug")
+    data["store"]["edges"][0]["is_bidirectional"] = True
+    data["store"]["shelf_blocks"][0]["levels"] = [
+        {"code": "A", "order": 1},
+        {"code": "B", "order": 2},
+        {"code": "C", "order": 3},
+        {"code": "D", "order": 4},
+    ]
+    data["products"].update(
+        aciklama="debug metadata",
+        urun_sayisi=1,
+        id_araligi=[1, 1],
+    )
     bundle = SourceBundle.model_validate(
         {"store": data["store"], "products": data["products"]}
     )
+
+    assert bundle.store.placements[0].product_name == "debug"
+    assert bundle.store.placements[0].side == "debug"
+    assert bundle.products.aciklama == "debug metadata"
+    assert bundle.products.urun_sayisi == 1
+    assert bundle.products.id_araligi == [1, 1]
+    assert bundle.products.products[0].shelf == "ignored-mapping-shelf"
+    assert bundle.products.products[0].slot == "ignored-mapping-slot"
     assert bundle.store.placements[0].product_external_id == "1"
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    [
+        lambda data: data["store"]["aisles"][0].update(aisle_numbr=1),
+        lambda data: data["store"]["shelf_blocks"][0].update(
+            access_nod_id="node-shelf"
+        ),
+        lambda data: data["products"]["products"][0].update(unexpected="value"),
+    ],
+)
+def test_unknown_source_fields_are_rejected_before_database_read(
+    tmp_path, mutation
+) -> None:
+    data = bundle_data()
+    mutation(data)
+    store_path = tmp_path / "store.json"
+    product_path = tmp_path / "products.json"
+    store_path.write_text(json.dumps(data["store"]), encoding="utf-8")
+    product_path.write_text(json.dumps(data["products"]), encoding="utf-8")
+    repository = MemoryRepository()
+
+    with pytest.raises(ImportAborted) as caught:
+        preflight_from_files(
+            store_path,
+            product_path,
+            store_name="Test Store",
+            repository=repository,
+        )
+
+    assert caught.value.category == "INVALID_SOURCE_STRUCTURE"
+    assert any(
+        error["type"] == "extra_forbidden"
+        for error in caught.value.report.entries[-1].details["errors"]
+    )
+    assert repository.read_calls == 0
+    assert repository.apply_calls == 0

@@ -74,6 +74,7 @@ def build_import_plan(
     parsed_slots = _parse_all_slots(bundle, report)
     resolved_definitions = _resolve_all_levels(bundle, parsed_slots, report)
     normalized_node_types = _normalize_node_types(bundle, report)
+    _validate_legacy_entrance(bundle, normalized_node_types, report)
     if sum(node_type == "giris" for node_type in normalized_node_types.values()) == 0:
         abort(report, "ZERO_ENTRANCE_NODES", store=source.store_id)
 
@@ -214,13 +215,14 @@ def build_import_plan(
     _report_products_losing_placements(state, products, placements, report)
 
     desired_links = _desired_placement_levels(placements, levels, parsed_slots)
+    desired_link_pairs = {
+        (placement_id, level_id) for placement_id, level_id, _ in desired_links
+    }
     incoming_placement_ids = {placement.id for placement in placements}
     stale_links = {
         link
         for link in state.placement_levels
-        if link[0] in incoming_placement_ids
-        and link
-        not in {(placement_id, level_id) for placement_id, level_id, _ in desired_links}
+        if link[0] in incoming_placement_ids and link not in desired_link_pairs
     }
     current_links = state.placement_levels
     new_links = {
@@ -285,6 +287,14 @@ def _validate_source_references(bundle: SourceBundle, report: ImportReport) -> N
     aisle_ids = {aisle.id for aisle in source.aisles}
     shelf_ids = {shelf.id for shelf in source.shelf_blocks}
     product_ids = {product.external_id for product in bundle.products.products}
+    if source.entrance_node_id is not None and source.entrance_node_id not in node_ids:
+        abort(
+            report,
+            "INVALID_SOURCE_REFERENCE",
+            offending_record={"entrance_node_id": source.entrance_node_id},
+            missing_reference=source.entrance_node_id,
+            expected_source_collection="store.json.nodes",
+        )
     for edge in source.edges:
         if edge.from_id == edge.to_id:
             abort(
@@ -340,6 +350,23 @@ def _validate_source_references(bundle: SourceBundle, report: ImportReport) -> N
                 missing_reference=placement.product_external_id,
                 expected_source_collection="product_mapping.products",
             )
+
+
+def _validate_legacy_entrance(
+    bundle: SourceBundle, node_types: dict[str, str], report: ImportReport
+) -> None:
+    entrance_node_id = bundle.store.entrance_node_id
+    if entrance_node_id is None:
+        return
+    if node_types[entrance_node_id] != "giris":
+        abort(
+            report,
+            "INVALID_SOURCE_REFERENCE",
+            offending_record={"entrance_node_id": entrance_node_id},
+            invalid_reference=entrance_node_id,
+            expected_node_type="giris",
+            actual_node_type=node_types[entrance_node_id],
+        )
 
 
 def _parse_all_slots(
@@ -878,7 +905,8 @@ def _threshold(
 def _enforce_threshold(
     report: ImportReport, result: ThresholdResult, category: str
 ) -> None:
-    if (
+    all_missing = result.baseline > 0 and result.missing_count == result.baseline
+    if all_missing or (
         result.missing_count > result.max_count
         and result.missing_ratio > result.max_ratio
     ):
@@ -890,6 +918,7 @@ def _enforce_threshold(
             missing_ratio=str(result.missing_ratio),
             max_count=result.max_count,
             max_ratio=str(result.max_ratio),
+            all_missing=all_missing,
             affected_ids=result.affected_ids,
         )
 

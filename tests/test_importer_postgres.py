@@ -1,12 +1,14 @@
 """Opt-in PostgreSQL integration coverage for the importer repository."""
 
 import os
+from copy import deepcopy
 from decimal import Decimal
 
 import pytest
 from importer_helpers import (
     DEFAULT_THRESHOLDS,
     SequentialUUIDs,
+    bundle_data,
     categories,
     make_bundle,
 )
@@ -23,6 +25,17 @@ from shelfsense.db.importer.service import (
 
 DATABASE_URL_ENV = "SHELFSENSE_IMPORT_INTEGRATION_DATABASE_URL"
 SAFE_DATABASE_PREFIX = "shelfsense_import_validation_"
+APPLICATION_TABLES = (
+    "product_placement_levels",
+    "product_placements",
+    "shelf_levels",
+    "shelf_blocks",
+    "navigation_edges",
+    "products",
+    "aisles",
+    "navigation_nodes",
+    "stores",
+)
 
 
 class FailingSqlImportRepository(SqlImportRepository):
@@ -31,6 +44,22 @@ class FailingSqlImportRepository(SqlImportRepository):
     def _write_products(self, connection: Connection, plan) -> None:
         super()._write_products(connection, plan)
         raise RuntimeError("injected integration write failure")
+
+
+@pytest.fixture(autouse=True)
+def clean_application_tables_between_tests():
+    """Isolate tests while preserving Flyway's migration history."""
+
+    engine = _integration_engine()
+    history_count = _flyway_history_count(engine)
+    try:
+        _clean_application_tables(engine)
+        assert _flyway_history_count(engine) == history_count
+        yield
+    finally:
+        _clean_application_tables(engine)
+        assert _flyway_history_count(engine) == history_count
+        engine.dispose()
 
 
 def test_postgres_import_is_idempotent_and_atomic() -> None:
@@ -106,6 +135,97 @@ def test_postgres_import_is_idempotent_and_atomic() -> None:
             "product_placements": 1,
             "product_placement_levels": 1,
         }
+    finally:
+        engine.dispose()
+
+
+def test_postgres_updates_source_owned_fields_and_preserves_operational_fields() -> (
+    None
+):
+    engine = _integration_engine()
+    repository = SqlImportRepository(engine)
+    initial_data = bundle_data()
+    initial_bundle = make_bundle(initial_data)
+    try:
+        import_bundle(
+            initial_bundle,
+            repository,
+            DEFAULT_THRESHOLDS,
+            store_name="Original Store Name",
+            uuid_factory=SequentialUUIDs(5000),
+        )
+        before = repository.read_store_state("store-1")
+        before_ids = _all_ids(before)
+        shelf_id = before.shelves["shelf-1"].id
+        assert before.store is not None
+
+        with engine.begin() as connection:
+            connection.execute(
+                text("UPDATE stores SET is_active = false WHERE id = :id"),
+                {"id": before.store.id},
+            )
+            connection.execute(
+                text("UPDATE shelf_blocks SET is_active = false WHERE id = :id"),
+                {"id": shelf_id},
+            )
+
+        changed_data = deepcopy(initial_data)
+        changed_data["store"]["nodes"][0].update(x="1.25", y="-2.5")
+        changed_data["store"]["edges"][0]["weight"] = "3.75"
+        changed_data["store"]["aisles"][0]["name"] = "Updated aisle"
+        changed_data["store"]["shelf_blocks"][0].update(
+            x="4.5", side="updated side", facing="-x"
+        )
+        changed_data["products"]["products"][0].update(
+            name="  updated authoritative name  ",
+            category="updated_category",
+            unit="paket",
+        )
+        changed_data["store"]["placements"][0]["slot"] = " B , d "
+
+        report = import_bundle(
+            make_bundle(changed_data),
+            repository,
+            DEFAULT_THRESHOLDS,
+            store_name="Ignored Replacement Name",
+            uuid_factory=SequentialUUIDs(6000),
+        )
+        after = repository.read_store_state("store-1")
+        node = after.nodes["node-entrance"]
+        edge = next(iter(after.edges.values()))
+        shelf = after.shelves["shelf-1"]
+        product = after.products["1"]
+        placement = after.placements[(product.id, shelf.id)]
+        level_codes = {level.id: level.code for level in after.levels.values()}
+        linked_codes = {
+            level_codes[level_id]
+            for placement_id, level_id in after.placement_levels
+            if placement_id == placement.id
+        }
+
+        assert _all_ids(after) == before_ids
+        assert node.x_m == Decimal("1.250")
+        assert node.y_m == Decimal("-2.500")
+        assert edge.distance_m == Decimal("3.750")
+        assert after.aisles["aisle-1"].name == "Updated aisle"
+        assert shelf.x_m == Decimal("4.500")
+        assert shelf.side_description == "updated side"
+        assert shelf.facing == "-x"
+        assert product.name == "  updated authoritative name  "
+        assert product.category == "updated_category"
+        assert product.unit == "paket"
+        assert placement.slot_code == " B , d "
+        assert linked_codes == {"B", "D"}
+        assert after.store is not None
+        assert after.store.name == "Original Store Name"
+        assert after.store.is_active is False
+        assert shelf.is_active is False
+        assert report.tables["navigation_nodes"].updated == 1
+        assert report.tables["navigation_edges"].updated == 1
+        assert report.tables["aisles"].updated == 1
+        assert report.tables["shelf_blocks"].updated == 1
+        assert report.tables["products"].updated == 1
+        assert report.tables["product_placements"].updated == 1
     finally:
         engine.dispose()
 
@@ -202,6 +322,21 @@ def _integration_engine():
             f"integration database name must start with {SAFE_DATABASE_PREFIX!r}"
         )
     return create_engine(database_url)
+
+
+def _clean_application_tables(engine) -> None:
+    with engine.begin() as connection:
+        database_name = connection.execute(text("SELECT current_database()"))
+        if not database_name.scalar_one().startswith(SAFE_DATABASE_PREFIX):
+            pytest.fail("refusing to clean a non-integration database")
+        connection.execute(text(f"TRUNCATE TABLE {', '.join(APPLICATION_TABLES)}"))
+
+
+def _flyway_history_count(engine) -> int:
+    with engine.connect() as connection:
+        return connection.execute(
+            text("SELECT COUNT(*) FROM flyway_schema_history")
+        ).scalar_one()
 
 
 def _bundle_for_store(store_external_id: str):

@@ -18,9 +18,9 @@ class SourceLoadError(ValueError):
 
 
 class SourceModel(BaseModel):
-    """Base source model that ignores explicitly non-authoritative extras."""
+    """Base source model that rejects fields outside the declared contract."""
 
-    model_config = ConfigDict(extra="ignore")
+    model_config = ConfigDict(extra="forbid")
 
 
 class NodeSource(SourceModel):
@@ -71,7 +71,9 @@ class ShelfBlockSource(SourceModel):
 
 class PlacementSource(SourceModel):
     product_id: int | str
+    product_name: str | None = None
     shelf_block_id: str
+    side: str | None = None
     slot: str
 
     @property
@@ -93,7 +95,9 @@ class ProductSource(SourceModel):
     id: int | str
     name: str
     category: str
+    shelf: str | None = None
     unit: str
+    slot: str | None = None
 
     @property
     def external_id(self) -> str:
@@ -101,10 +105,13 @@ class ProductSource(SourceModel):
 
 
 class ProductMappingSource(SourceModel):
+    aciklama: str | None = None
+    urun_sayisi: int | None = None
+    id_araligi: list[int] | None = None
     products: list[ProductSource]
 
 
-class SourceBundle(BaseModel):
+class SourceBundle(SourceModel):
     """Validated basic source documents."""
 
     store: StoreSource
