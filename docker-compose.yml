@@ -19,5 +19,22 @@ services:
       timeout: 5s
       retries: 10
 
+  flyway:
+    image: flyway/flyway:13.4.0
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      FLYWAY_URL: "jdbc:postgresql://db:5432/${POSTGRES_DB:-shelfsense}"
+      FLYWAY_USER: "${POSTGRES_USER:-shelfsense}"
+      FLYWAY_PASSWORD: "${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required; copy .env.example to .env}"
+      FLYWAY_LOCATIONS: "filesystem:/flyway/sql"
+      FLYWAY_CONNECT_RETRIES: "10"
+      FLYWAY_CLEAN_DISABLED: "true"
+      FLYWAY_VALIDATE_MIGRATION_NAMING: "true"
+    volumes:
+      - ./migrations:/flyway/sql:ro
+    command: migrate
+
 volumes:
   postgres_data:

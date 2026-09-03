@@ -4,13 +4,14 @@
 
 ## Verilmiş kabuller
 - 2D (x, y) metre koordinat; Z sözleşmede yok (projeksiyon Blender export'ta).
-- catalog.json ve contracts/ tek doğru kaynaktır.
+- Ürün verisinin tek doğru kaynağı `data/product_mapping.json`, mağaza
+  verisinin tek doğru kaynağı `data/store.json` dosyasıdır.
 - perception/ paket dışında (üretim aracı, ürünün parçası değil).
 - Merkezi veritabanı PostgreSQL 16'dır.
 - Python veri erişim katmanında SQLAlchemy 2 ve senkron Psycopg 3 kullanılır.
-- Veritabanı şema değişiklikleri Alembic migration'larıyla yönetilir.
-- Veritabanı şemasının tek doğru kaynağı SQLAlchemy modelleri ve Alembic
-  migration'larıdır; `schema.sql` kullanılmaz.
+- Veritabanı şema değişiklikleri forward-only Flyway migration'larıyla yönetilir.
+- Veritabanı şemasının tek doğru kaynağı Flyway migration'larıdır;
+  `schema.sql` kullanılmaz.
 
 ## Açık kararlar (bkz. contracts/*_schema.md AÇIK SORULAR)
 ### Erişim düğümü: elle mi, hesaplanarak mı?

@@ -1,13 +1,13 @@
-"""catalog.json → veritabanı yükleyici (tek doğru kaynaktan tohumlama).
+"""Deprecated legacy catalog-loader entry point.
 
-Saf Python iş mantığı modülü. data/catalog.json okunup products/variants/
-shelves tablolarına yazılır. catalog.json DEĞİŞTİRİLMEZ, sadece okunur.
+Product and store data are imported together through ``shelfsense.db.importer``
+from ``data/product_mapping.json`` and ``data/store.json``.
 """
 
 
-def load_catalog(path: str = "data/catalog.json") -> int:
-    """catalog.json'u veritabanına yükler; yüklenen ürün sayısını döndürür.
+def load_catalog(path: str = "data/product_mapping.json") -> int:
+    """Reject use of the deprecated split loader; use the unified importer."""
 
-    Girdi: catalog.json yolu. Çıktı: yüklenen ürün sayısı.
-    """
-    raise NotImplementedError
+    raise NotImplementedError(
+        f"load_catalog({path!r}) is deprecated; use shelfsense.db.importer"
+    )

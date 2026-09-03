@@ -1,0 +1,1473 @@
+{
+  "store_id": "shelfsense_market",
+  "entrance_node_id": "n_giris",
+  "nodes": [
+    {
+      "id": "n_temizlik_on",
+      "x": -8.3,
+      "y": -5.0,
+      "kind": "kavsak"
+    },
+    {
+      "id": "n_temizlik_deterjan",
+      "x": -8.3,
+      "y": -2.2,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_temizlik_sampuan",
+      "x": -8.3,
+      "y": 1.2,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_temizlik_macun",
+      "x": -8.3,
+      "y": 4.6,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_temizlik_icecek",
+      "x": -8.3,
+      "y": 6.05,
+      "kind": "kavsak"
+    },
+    {
+      "id": "n_sut_bati_on",
+      "x": -5.9,
+      "y": -5.0,
+      "kind": "kavsak"
+    },
+    {
+      "id": "n_sut_bati_peynir",
+      "x": -5.9,
+      "y": -2.967,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_sut_bati_yogurt",
+      "x": -5.9,
+      "y": -0.5,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_sut_bati_sut",
+      "x": -5.9,
+      "y": 1.967,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_sut_bati_arka",
+      "x": -5.9,
+      "y": 4.6,
+      "kind": "kavsak"
+    },
+    {
+      "id": "n_sut_bakliyat_on",
+      "x": -2.95,
+      "y": -5.0,
+      "kind": "kavsak"
+    },
+    {
+      "id": "n_sut_bakliyat_peynir_poset",
+      "x": -2.95,
+      "y": -2.967,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_sut_bakliyat_yogurt_kutu",
+      "x": -2.95,
+      "y": -0.5,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_sut_bakliyat_sut_konserve",
+      "x": -2.95,
+      "y": 1.967,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_sut_bakliyat_arka",
+      "x": -2.95,
+      "y": 4.6,
+      "kind": "kavsak"
+    },
+    {
+      "id": "n_bakliyat_bakim_on",
+      "x": 0.05,
+      "y": -5.0,
+      "kind": "kavsak"
+    },
+    {
+      "id": "n_bakliyat_bakim_poset_dusjeli",
+      "x": 0.05,
+      "y": -3.121,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_bakliyat_bakim_deodorant",
+      "x": 0.05,
+      "y": -1.425,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_bakliyat_bakim_kutu",
+      "x": 0.05,
+      "y": -0.5,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_bakliyat_bakim_krem",
+      "x": 0.05,
+      "y": 0.425,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_bakliyat_bakim_konserve_sabun",
+      "x": 0.05,
+      "y": 2.121,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_bakliyat_bakim_arka",
+      "x": 0.05,
+      "y": 4.6,
+      "kind": "kavsak"
+    },
+    {
+      "id": "n_bakliyat_bakim_icecek",
+      "x": 0.05,
+      "y": 6.05,
+      "kind": "kavsak"
+    },
+    {
+      "id": "n_bakim_dogu_on",
+      "x": 3.1,
+      "y": -5.0,
+      "kind": "kavsak"
+    },
+    {
+      "id": "n_bakim_dogu_dusjeli",
+      "x": 3.1,
+      "y": -3.275,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_bakim_dogu_deodorant",
+      "x": 3.1,
+      "y": -1.425,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_bakim_dogu_krem",
+      "x": 3.1,
+      "y": 0.425,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_bakim_dogu_sabun",
+      "x": 3.1,
+      "y": 2.275,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_bakim_dogu_arka",
+      "x": 3.1,
+      "y": 4.6,
+      "kind": "kavsak"
+    },
+    {
+      "id": "n_bakim_dogu_meyve",
+      "x": 3.1,
+      "y": 5.2,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_meyve_bati_kasa",
+      "x": 7.4,
+      "y": -3.275,
+      "kind": "kavsak"
+    },
+    {
+      "id": "n_meyve_bati_orta",
+      "x": 7.4,
+      "y": -1.212,
+      "kind": "kavsak"
+    },
+    {
+      "id": "n_meyve_bati_havuc",
+      "x": 7.4,
+      "y": 0.85,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_meyve_bati_muz",
+      "x": 7.4,
+      "y": 2.975,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_meyve_bati_kuzey",
+      "x": 7.4,
+      "y": 5.2,
+      "kind": "kavsak"
+    },
+    {
+      "id": "n_giris",
+      "x": -2.25,
+      "y": -7.2,
+      "kind": "giris"
+    },
+    {
+      "id": "n_giris_ic",
+      "x": -2.25,
+      "y": -5.0,
+      "kind": "kavsak"
+    },
+    {
+      "id": "n_cikis",
+      "x": 2.46,
+      "y": -7.2,
+      "kind": "cikis"
+    },
+    {
+      "id": "n_cikis_ic",
+      "x": 2.46,
+      "y": -5.0,
+      "kind": "kavsak"
+    },
+    {
+      "id": "n_kasa",
+      "x": 6.6,
+      "y": -3.275,
+      "kind": "kasa"
+    },
+    {
+      "id": "n_icecek_su",
+      "x": -7.438,
+      "y": 6.05,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_icecek_gazoz",
+      "x": -5.312,
+      "y": 6.05,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_icecek_meyvesuyu",
+      "x": -3.188,
+      "y": 6.05,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_meyve_brokoli",
+      "x": 5.845,
+      "y": 5.2,
+      "kind": "raf-onu"
+    },
+    {
+      "id": "n_meyve_karpuz",
+      "x": 8.48,
+      "y": 5.2,
+      "kind": "raf-onu"
+    }
+  ],
+  "edges": [
+    {
+      "from_id": "n_temizlik_on",
+      "to_id": "n_temizlik_deterjan",
+      "weight": 2.8
+    },
+    {
+      "from_id": "n_temizlik_deterjan",
+      "to_id": "n_temizlik_sampuan",
+      "weight": 3.4
+    },
+    {
+      "from_id": "n_temizlik_sampuan",
+      "to_id": "n_temizlik_macun",
+      "weight": 3.4
+    },
+    {
+      "from_id": "n_temizlik_macun",
+      "to_id": "n_temizlik_icecek",
+      "weight": 1.45
+    },
+    {
+      "from_id": "n_sut_bati_on",
+      "to_id": "n_sut_bati_peynir",
+      "weight": 2.033
+    },
+    {
+      "from_id": "n_sut_bati_peynir",
+      "to_id": "n_sut_bati_yogurt",
+      "weight": 2.467
+    },
+    {
+      "from_id": "n_sut_bati_yogurt",
+      "to_id": "n_sut_bati_sut",
+      "weight": 2.467
+    },
+    {
+      "from_id": "n_sut_bati_sut",
+      "to_id": "n_sut_bati_arka",
+      "weight": 2.633
+    },
+    {
+      "from_id": "n_sut_bakliyat_on",
+      "to_id": "n_sut_bakliyat_peynir_poset",
+      "weight": 2.033
+    },
+    {
+      "from_id": "n_sut_bakliyat_peynir_poset",
+      "to_id": "n_sut_bakliyat_yogurt_kutu",
+      "weight": 2.467
+    },
+    {
+      "from_id": "n_sut_bakliyat_yogurt_kutu",
+      "to_id": "n_sut_bakliyat_sut_konserve",
+      "weight": 2.467
+    },
+    {
+      "from_id": "n_sut_bakliyat_sut_konserve",
+      "to_id": "n_sut_bakliyat_arka",
+      "weight": 2.633
+    },
+    {
+      "from_id": "n_bakliyat_bakim_on",
+      "to_id": "n_bakliyat_bakim_poset_dusjeli",
+      "weight": 1.879
+    },
+    {
+      "from_id": "n_bakliyat_bakim_poset_dusjeli",
+      "to_id": "n_bakliyat_bakim_deodorant",
+      "weight": 1.696
+    },
+    {
+      "from_id": "n_bakliyat_bakim_deodorant",
+      "to_id": "n_bakliyat_bakim_kutu",
+      "weight": 0.925
+    },
+    {
+      "from_id": "n_bakliyat_bakim_kutu",
+      "to_id": "n_bakliyat_bakim_krem",
+      "weight": 0.925
+    },
+    {
+      "from_id": "n_bakliyat_bakim_krem",
+      "to_id": "n_bakliyat_bakim_konserve_sabun",
+      "weight": 1.696
+    },
+    {
+      "from_id": "n_bakliyat_bakim_konserve_sabun",
+      "to_id": "n_bakliyat_bakim_arka",
+      "weight": 2.479
+    },
+    {
+      "from_id": "n_bakliyat_bakim_arka",
+      "to_id": "n_bakliyat_bakim_icecek",
+      "weight": 1.45
+    },
+    {
+      "from_id": "n_bakim_dogu_on",
+      "to_id": "n_bakim_dogu_dusjeli",
+      "weight": 1.725
+    },
+    {
+      "from_id": "n_bakim_dogu_dusjeli",
+      "to_id": "n_bakim_dogu_deodorant",
+      "weight": 1.85
+    },
+    {
+      "from_id": "n_bakim_dogu_deodorant",
+      "to_id": "n_bakim_dogu_krem",
+      "weight": 1.85
+    },
+    {
+      "from_id": "n_bakim_dogu_krem",
+      "to_id": "n_bakim_dogu_sabun",
+      "weight": 1.85
+    },
+    {
+      "from_id": "n_bakim_dogu_sabun",
+      "to_id": "n_bakim_dogu_arka",
+      "weight": 2.325
+    },
+    {
+      "from_id": "n_bakim_dogu_arka",
+      "to_id": "n_bakim_dogu_meyve",
+      "weight": 0.6
+    },
+    {
+      "from_id": "n_meyve_bati_kasa",
+      "to_id": "n_meyve_bati_orta",
+      "weight": 2.063
+    },
+    {
+      "from_id": "n_meyve_bati_orta",
+      "to_id": "n_meyve_bati_havuc",
+      "weight": 2.062
+    },
+    {
+      "from_id": "n_meyve_bati_havuc",
+      "to_id": "n_meyve_bati_muz",
+      "weight": 2.125
+    },
+    {
+      "from_id": "n_meyve_bati_muz",
+      "to_id": "n_meyve_bati_kuzey",
+      "weight": 2.225
+    },
+    {
+      "from_id": "n_giris",
+      "to_id": "n_giris_ic",
+      "weight": 2.2
+    },
+    {
+      "from_id": "n_cikis",
+      "to_id": "n_cikis_ic",
+      "weight": 2.2
+    },
+    {
+      "from_id": "n_temizlik_on",
+      "to_id": "n_sut_bati_on",
+      "weight": 2.4
+    },
+    {
+      "from_id": "n_sut_bati_on",
+      "to_id": "n_sut_bakliyat_on",
+      "weight": 2.95
+    },
+    {
+      "from_id": "n_sut_bakliyat_on",
+      "to_id": "n_giris_ic",
+      "weight": 0.7
+    },
+    {
+      "from_id": "n_giris_ic",
+      "to_id": "n_bakliyat_bakim_on",
+      "weight": 2.3
+    },
+    {
+      "from_id": "n_bakliyat_bakim_on",
+      "to_id": "n_cikis_ic",
+      "weight": 2.41
+    },
+    {
+      "from_id": "n_cikis_ic",
+      "to_id": "n_bakim_dogu_on",
+      "weight": 0.64
+    },
+    {
+      "from_id": "n_temizlik_macun",
+      "to_id": "n_sut_bati_arka",
+      "weight": 2.4
+    },
+    {
+      "from_id": "n_sut_bati_arka",
+      "to_id": "n_sut_bakliyat_arka",
+      "weight": 2.95
+    },
+    {
+      "from_id": "n_sut_bakliyat_arka",
+      "to_id": "n_bakliyat_bakim_arka",
+      "weight": 3.0
+    },
+    {
+      "from_id": "n_bakliyat_bakim_arka",
+      "to_id": "n_bakim_dogu_arka",
+      "weight": 3.05
+    },
+    {
+      "from_id": "n_temizlik_icecek",
+      "to_id": "n_icecek_su",
+      "weight": 0.862
+    },
+    {
+      "from_id": "n_icecek_su",
+      "to_id": "n_icecek_gazoz",
+      "weight": 2.126
+    },
+    {
+      "from_id": "n_icecek_gazoz",
+      "to_id": "n_icecek_meyvesuyu",
+      "weight": 2.124
+    },
+    {
+      "from_id": "n_icecek_meyvesuyu",
+      "to_id": "n_bakliyat_bakim_icecek",
+      "weight": 3.238
+    },
+    {
+      "from_id": "n_bakim_dogu_meyve",
+      "to_id": "n_meyve_brokoli",
+      "weight": 2.745
+    },
+    {
+      "from_id": "n_meyve_brokoli",
+      "to_id": "n_meyve_bati_kuzey",
+      "weight": 1.555
+    },
+    {
+      "from_id": "n_meyve_bati_kuzey",
+      "to_id": "n_meyve_karpuz",
+      "weight": 1.08
+    },
+    {
+      "from_id": "n_bakim_dogu_dusjeli",
+      "to_id": "n_kasa",
+      "weight": 3.5
+    },
+    {
+      "from_id": "n_kasa",
+      "to_id": "n_meyve_bati_kasa",
+      "weight": 0.8
+    }
+  ],
+  "aisles": [
+    {
+      "id": "aisle_1",
+      "name": "1. reyon - meyve ve sebze"
+    },
+    {
+      "id": "aisle_2",
+      "name": "2. reyon - sut ve kahvaltilik"
+    },
+    {
+      "id": "aisle_3",
+      "name": "3. reyon - bakliyat ve temel gida"
+    },
+    {
+      "id": "aisle_4",
+      "name": "4. reyon - kisisel bakim"
+    },
+    {
+      "id": "aisle_5",
+      "name": "5. reyon - icecek sogutucusu"
+    },
+    {
+      "id": "aisle_6",
+      "name": "6. reyon - temizlik"
+    }
+  ],
+  "shelf_blocks": [
+    {
+      "id": "shelf_dairy__b01",
+      "aisle_id": "aisle_2",
+      "x": -4.71,
+      "y": -2.967,
+      "w": 0.58,
+      "h": 2.467,
+      "facing": "-x",
+      "access_node_id": "n_sut_bati_peynir",
+      "side": "2. reyon adasi - bati yuzu"
+    },
+    {
+      "id": "shelf_dairy__b02",
+      "aisle_id": "aisle_2",
+      "x": -4.71,
+      "y": -0.5,
+      "w": 0.58,
+      "h": 2.467,
+      "facing": "-x",
+      "access_node_id": "n_sut_bati_yogurt",
+      "side": "2. reyon adasi - bati yuzu"
+    },
+    {
+      "id": "shelf_dairy__b03",
+      "aisle_id": "aisle_2",
+      "x": -4.71,
+      "y": 1.967,
+      "w": 0.58,
+      "h": 2.467,
+      "facing": "-x",
+      "access_node_id": "n_sut_bati_sut",
+      "side": "2. reyon adasi - bati yuzu"
+    },
+    {
+      "id": "shelf_dairy__b04",
+      "aisle_id": "aisle_2",
+      "x": -4.09,
+      "y": -2.967,
+      "w": 0.58,
+      "h": 2.467,
+      "facing": "+x",
+      "access_node_id": "n_sut_bakliyat_peynir_poset",
+      "side": "2. reyon adasi - dogu yuzu"
+    },
+    {
+      "id": "shelf_dairy__b05",
+      "aisle_id": "aisle_2",
+      "x": -4.09,
+      "y": -0.5,
+      "w": 0.58,
+      "h": 2.467,
+      "facing": "+x",
+      "access_node_id": "n_sut_bakliyat_yogurt_kutu",
+      "side": "2. reyon adasi - dogu yuzu"
+    },
+    {
+      "id": "shelf_dairy__b06",
+      "aisle_id": "aisle_2",
+      "x": -4.09,
+      "y": 1.967,
+      "w": 0.58,
+      "h": 2.467,
+      "facing": "+x",
+      "access_node_id": "n_sut_bakliyat_sut_konserve",
+      "side": "2. reyon adasi - dogu yuzu"
+    },
+    {
+      "id": "shelf_dry_goods__b01",
+      "aisle_id": "aisle_3",
+      "x": -1.81,
+      "y": -2.967,
+      "w": 0.58,
+      "h": 2.467,
+      "facing": "-x",
+      "access_node_id": "n_sut_bakliyat_peynir_poset",
+      "side": "3. reyon adasi - bati yuzu"
+    },
+    {
+      "id": "shelf_dry_goods__b02",
+      "aisle_id": "aisle_3",
+      "x": -1.81,
+      "y": -0.5,
+      "w": 0.58,
+      "h": 2.467,
+      "facing": "-x",
+      "access_node_id": "n_sut_bakliyat_yogurt_kutu",
+      "side": "3. reyon adasi - bati yuzu"
+    },
+    {
+      "id": "shelf_dry_goods__b03",
+      "aisle_id": "aisle_3",
+      "x": -1.81,
+      "y": 1.967,
+      "w": 0.58,
+      "h": 2.467,
+      "facing": "-x",
+      "access_node_id": "n_sut_bakliyat_sut_konserve",
+      "side": "3. reyon adasi - bati yuzu"
+    },
+    {
+      "id": "shelf_dry_goods__b04",
+      "aisle_id": "aisle_3",
+      "x": -1.19,
+      "y": -2.967,
+      "w": 0.58,
+      "h": 2.467,
+      "facing": "+x",
+      "access_node_id": "n_bakliyat_bakim_poset_dusjeli",
+      "side": "3. reyon adasi - dogu yuzu"
+    },
+    {
+      "id": "shelf_dry_goods__b05",
+      "aisle_id": "aisle_3",
+      "x": -1.19,
+      "y": -0.5,
+      "w": 0.58,
+      "h": 2.467,
+      "facing": "+x",
+      "access_node_id": "n_bakliyat_bakim_kutu",
+      "side": "3. reyon adasi - dogu yuzu"
+    },
+    {
+      "id": "shelf_dry_goods__b06",
+      "aisle_id": "aisle_3",
+      "x": -1.19,
+      "y": 1.967,
+      "w": 0.58,
+      "h": 2.467,
+      "facing": "+x",
+      "access_node_id": "n_bakliyat_bakim_konserve_sabun",
+      "side": "3. reyon adasi - dogu yuzu"
+    },
+    {
+      "id": "shelf_personal_care__b01",
+      "aisle_id": "aisle_4",
+      "x": 1.29,
+      "y": -3.275,
+      "w": 0.58,
+      "h": 1.85,
+      "facing": "-x",
+      "access_node_id": "n_bakliyat_bakim_poset_dusjeli",
+      "side": "4. reyon adasi - bati yuzu"
+    },
+    {
+      "id": "shelf_personal_care__b02",
+      "aisle_id": "aisle_4",
+      "x": 1.29,
+      "y": -1.425,
+      "w": 0.58,
+      "h": 1.85,
+      "facing": "-x",
+      "access_node_id": "n_bakliyat_bakim_deodorant",
+      "side": "4. reyon adasi - bati yuzu"
+    },
+    {
+      "id": "shelf_personal_care__b03",
+      "aisle_id": "aisle_4",
+      "x": 1.29,
+      "y": 0.425,
+      "w": 0.58,
+      "h": 1.85,
+      "facing": "-x",
+      "access_node_id": "n_bakliyat_bakim_krem",
+      "side": "4. reyon adasi - bati yuzu"
+    },
+    {
+      "id": "shelf_personal_care__b04",
+      "aisle_id": "aisle_4",
+      "x": 1.29,
+      "y": 2.275,
+      "w": 0.58,
+      "h": 1.85,
+      "facing": "-x",
+      "access_node_id": "n_bakliyat_bakim_konserve_sabun",
+      "side": "4. reyon adasi - bati yuzu"
+    },
+    {
+      "id": "shelf_personal_care__b05",
+      "aisle_id": "aisle_4",
+      "x": 1.91,
+      "y": -3.275,
+      "w": 0.58,
+      "h": 1.85,
+      "facing": "+x",
+      "access_node_id": "n_bakim_dogu_dusjeli",
+      "side": "4. reyon adasi - dogu yuzu"
+    },
+    {
+      "id": "shelf_personal_care__b06",
+      "aisle_id": "aisle_4",
+      "x": 1.91,
+      "y": -1.425,
+      "w": 0.58,
+      "h": 1.85,
+      "facing": "+x",
+      "access_node_id": "n_bakim_dogu_deodorant",
+      "side": "4. reyon adasi - dogu yuzu"
+    },
+    {
+      "id": "shelf_personal_care__b07",
+      "aisle_id": "aisle_4",
+      "x": 1.91,
+      "y": 0.425,
+      "w": 0.58,
+      "h": 1.85,
+      "facing": "+x",
+      "access_node_id": "n_bakim_dogu_krem",
+      "side": "4. reyon adasi - dogu yuzu"
+    },
+    {
+      "id": "shelf_personal_care__b08",
+      "aisle_id": "aisle_4",
+      "x": 1.91,
+      "y": 2.275,
+      "w": 0.58,
+      "h": 1.85,
+      "facing": "+x",
+      "access_node_id": "n_bakim_dogu_sabun",
+      "side": "4. reyon adasi - dogu yuzu"
+    },
+    {
+      "id": "shelf_cleaning__b01",
+      "aisle_id": "aisle_6",
+      "x": -9.5,
+      "y": -2.2,
+      "w": 0.62,
+      "h": 3.4,
+      "facing": "+x",
+      "access_node_id": "n_temizlik_deterjan",
+      "side": "sol duvar - koridora bakiyor"
+    },
+    {
+      "id": "shelf_cleaning__b02",
+      "aisle_id": "aisle_6",
+      "x": -9.5,
+      "y": 1.2,
+      "w": 0.62,
+      "h": 3.4,
+      "facing": "+x",
+      "access_node_id": "n_temizlik_sampuan",
+      "side": "sol duvar - koridora bakiyor"
+    },
+    {
+      "id": "shelf_cleaning__b03",
+      "aisle_id": "aisle_6",
+      "x": -9.5,
+      "y": 4.6,
+      "w": 0.62,
+      "h": 3.4,
+      "facing": "+x",
+      "access_node_id": "n_temizlik_macun",
+      "side": "sol duvar - koridora bakiyor"
+    },
+    {
+      "id": "shelf_beverages__b01",
+      "aisle_id": "aisle_5",
+      "x": -7.438,
+      "y": 7.45,
+      "w": 2.125,
+      "h": 1.0,
+      "facing": "-y",
+      "access_node_id": "n_icecek_su",
+      "side": "arka duvar - 1. sogutucu dolabi"
+    },
+    {
+      "id": "shelf_beverages__b02",
+      "aisle_id": "aisle_5",
+      "x": -5.312,
+      "y": 7.45,
+      "w": 2.125,
+      "h": 1.0,
+      "facing": "-y",
+      "access_node_id": "n_icecek_gazoz",
+      "side": "arka duvar - 2. sogutucu dolabi"
+    },
+    {
+      "id": "shelf_beverages__b03",
+      "aisle_id": "aisle_5",
+      "x": -3.188,
+      "y": 7.45,
+      "w": 2.125,
+      "h": 1.0,
+      "facing": "-y",
+      "access_node_id": "n_icecek_meyvesuyu",
+      "side": "arka duvar - 3. sogutucu dolabi"
+    },
+    {
+      "id": "shelf_produce__b01",
+      "aisle_id": "aisle_1",
+      "x": 3.215,
+      "y": 6.725,
+      "w": 2.63,
+      "h": 1.55,
+      "facing": "open",
+      "access_node_id": "n_bakim_dogu_meyve",
+      "side": "meyve kasasi - dort taraftan erisilir"
+    },
+    {
+      "id": "shelf_produce__b02",
+      "aisle_id": "aisle_1",
+      "x": 5.845,
+      "y": 6.725,
+      "w": 2.63,
+      "h": 1.55,
+      "facing": "open",
+      "access_node_id": "n_meyve_brokoli",
+      "side": "meyve kasasi - dort taraftan erisilir"
+    },
+    {
+      "id": "shelf_produce__b03",
+      "aisle_id": "aisle_1",
+      "x": 8.48,
+      "y": 6.725,
+      "w": 2.64,
+      "h": 1.55,
+      "facing": "open",
+      "access_node_id": "n_meyve_karpuz",
+      "side": "meyve kasasi - dort taraftan erisilir"
+    },
+    {
+      "id": "shelf_produce__b04",
+      "aisle_id": "aisle_1",
+      "x": 9.025,
+      "y": 2.975,
+      "w": 1.55,
+      "h": 2.65,
+      "facing": "open",
+      "access_node_id": "n_meyve_bati_muz",
+      "side": "meyve kasasi - dort taraftan erisilir"
+    },
+    {
+      "id": "shelf_produce__b05",
+      "aisle_id": "aisle_1",
+      "x": 9.025,
+      "y": 0.85,
+      "w": 1.55,
+      "h": 1.6,
+      "facing": "open",
+      "access_node_id": "n_meyve_bati_havuc",
+      "side": "meyve kasasi - dort taraftan erisilir"
+    }
+  ],
+  "placements": [
+    {
+      "product_id": 21,
+      "product_name": "peynir kare buyuk",
+      "shelf_block_id": "shelf_dairy__b01",
+      "side": "2. reyon adasi - bati yuzu",
+      "slot": "D"
+    },
+    {
+      "product_id": 22,
+      "product_name": "peynir kare kucuk",
+      "shelf_block_id": "shelf_dairy__b01",
+      "side": "2. reyon adasi - bati yuzu",
+      "slot": "C"
+    },
+    {
+      "product_id": 23,
+      "product_name": "peynir ucgen buyuk",
+      "shelf_block_id": "shelf_dairy__b01",
+      "side": "2. reyon adasi - bati yuzu",
+      "slot": "B"
+    },
+    {
+      "product_id": 24,
+      "product_name": "peynir ucgen kucuk",
+      "shelf_block_id": "shelf_dairy__b01",
+      "side": "2. reyon adasi - bati yuzu",
+      "slot": "A"
+    },
+    {
+      "product_id": 25,
+      "product_name": "yogurt icim 5 kg",
+      "shelf_block_id": "shelf_dairy__b02",
+      "side": "2. reyon adasi - bati yuzu",
+      "slot": "D"
+    },
+    {
+      "product_id": 26,
+      "product_name": "yogurt eker 5 kg",
+      "shelf_block_id": "shelf_dairy__b02",
+      "side": "2. reyon adasi - bati yuzu",
+      "slot": "C"
+    },
+    {
+      "product_id": 27,
+      "product_name": "yogurt icim 3 kg",
+      "shelf_block_id": "shelf_dairy__b02",
+      "side": "2. reyon adasi - bati yuzu",
+      "slot": "B"
+    },
+    {
+      "product_id": 28,
+      "product_name": "yogurt eker 3 kg",
+      "shelf_block_id": "shelf_dairy__b02",
+      "side": "2. reyon adasi - bati yuzu",
+      "slot": "A"
+    },
+    {
+      "product_id": 29,
+      "product_name": "sut sek",
+      "shelf_block_id": "shelf_dairy__b03",
+      "side": "2. reyon adasi - bati yuzu",
+      "slot": "D"
+    },
+    {
+      "product_id": 30,
+      "product_name": "sut icim",
+      "shelf_block_id": "shelf_dairy__b03",
+      "side": "2. reyon adasi - bati yuzu",
+      "slot": "C"
+    },
+    {
+      "product_id": 31,
+      "product_name": "sut halk",
+      "shelf_block_id": "shelf_dairy__b03",
+      "side": "2. reyon adasi - bati yuzu",
+      "slot": "B"
+    },
+    {
+      "product_id": 32,
+      "product_name": "sut migros",
+      "shelf_block_id": "shelf_dairy__b03",
+      "side": "2. reyon adasi - bati yuzu",
+      "slot": "A"
+    },
+    {
+      "product_id": 21,
+      "product_name": "peynir kare buyuk",
+      "shelf_block_id": "shelf_dairy__b04",
+      "side": "2. reyon adasi - dogu yuzu",
+      "slot": "D"
+    },
+    {
+      "product_id": 22,
+      "product_name": "peynir kare kucuk",
+      "shelf_block_id": "shelf_dairy__b04",
+      "side": "2. reyon adasi - dogu yuzu",
+      "slot": "C"
+    },
+    {
+      "product_id": 23,
+      "product_name": "peynir ucgen buyuk",
+      "shelf_block_id": "shelf_dairy__b04",
+      "side": "2. reyon adasi - dogu yuzu",
+      "slot": "B"
+    },
+    {
+      "product_id": 24,
+      "product_name": "peynir ucgen kucuk",
+      "shelf_block_id": "shelf_dairy__b04",
+      "side": "2. reyon adasi - dogu yuzu",
+      "slot": "A"
+    },
+    {
+      "product_id": 25,
+      "product_name": "yogurt icim 5 kg",
+      "shelf_block_id": "shelf_dairy__b05",
+      "side": "2. reyon adasi - dogu yuzu",
+      "slot": "D"
+    },
+    {
+      "product_id": 26,
+      "product_name": "yogurt eker 5 kg",
+      "shelf_block_id": "shelf_dairy__b05",
+      "side": "2. reyon adasi - dogu yuzu",
+      "slot": "C"
+    },
+    {
+      "product_id": 27,
+      "product_name": "yogurt icim 3 kg",
+      "shelf_block_id": "shelf_dairy__b05",
+      "side": "2. reyon adasi - dogu yuzu",
+      "slot": "B"
+    },
+    {
+      "product_id": 28,
+      "product_name": "yogurt eker 3 kg",
+      "shelf_block_id": "shelf_dairy__b05",
+      "side": "2. reyon adasi - dogu yuzu",
+      "slot": "A"
+    },
+    {
+      "product_id": 29,
+      "product_name": "sut sek",
+      "shelf_block_id": "shelf_dairy__b06",
+      "side": "2. reyon adasi - dogu yuzu",
+      "slot": "D"
+    },
+    {
+      "product_id": 30,
+      "product_name": "sut icim",
+      "shelf_block_id": "shelf_dairy__b06",
+      "side": "2. reyon adasi - dogu yuzu",
+      "slot": "C"
+    },
+    {
+      "product_id": 31,
+      "product_name": "sut halk",
+      "shelf_block_id": "shelf_dairy__b06",
+      "side": "2. reyon adasi - dogu yuzu",
+      "slot": "B"
+    },
+    {
+      "product_id": 32,
+      "product_name": "sut migros",
+      "shelf_block_id": "shelf_dairy__b06",
+      "side": "2. reyon adasi - dogu yuzu",
+      "slot": "A"
+    },
+    {
+      "product_id": 1,
+      "product_name": "soke un",
+      "shelf_block_id": "shelf_dry_goods__b01",
+      "side": "3. reyon adasi - bati yuzu",
+      "slot": "D"
+    },
+    {
+      "product_id": 2,
+      "product_name": "yayla yesil mercimek",
+      "shelf_block_id": "shelf_dry_goods__b01",
+      "side": "3. reyon adasi - bati yuzu",
+      "slot": "C"
+    },
+    {
+      "product_id": 3,
+      "product_name": "duru pilavlik bulgur",
+      "shelf_block_id": "shelf_dry_goods__b01",
+      "side": "3. reyon adasi - bati yuzu",
+      "slot": "B"
+    },
+    {
+      "product_id": 4,
+      "product_name": "tat baldo pirinc",
+      "shelf_block_id": "shelf_dry_goods__b01",
+      "side": "3. reyon adasi - bati yuzu",
+      "slot": "A"
+    },
+    {
+      "product_id": 5,
+      "product_name": "migros asurelik bugday",
+      "shelf_block_id": "shelf_dry_goods__b02",
+      "side": "3. reyon adasi - bati yuzu",
+      "slot": "D"
+    },
+    {
+      "product_id": 6,
+      "product_name": "migros yesil mercimek",
+      "shelf_block_id": "shelf_dry_goods__b02",
+      "side": "3. reyon adasi - bati yuzu",
+      "slot": "C"
+    },
+    {
+      "product_id": 7,
+      "product_name": "migros fasulye",
+      "shelf_block_id": "shelf_dry_goods__b02",
+      "side": "3. reyon adasi - bati yuzu",
+      "slot": "B"
+    },
+    {
+      "product_id": 8,
+      "product_name": "migros kirmizi mercimek",
+      "shelf_block_id": "shelf_dry_goods__b02",
+      "side": "3. reyon adasi - bati yuzu",
+      "slot": "A"
+    },
+    {
+      "product_id": 9,
+      "product_name": "gewurz gurken kornison",
+      "shelf_block_id": "shelf_dry_goods__b03",
+      "side": "3. reyon adasi - bati yuzu",
+      "slot": "D"
+    },
+    {
+      "product_id": 10,
+      "product_name": "burcu bezelye konservesi",
+      "shelf_block_id": "shelf_dry_goods__b03",
+      "side": "3. reyon adasi - bati yuzu",
+      "slot": "C"
+    },
+    {
+      "product_id": 11,
+      "product_name": "migros domates salcasi",
+      "shelf_block_id": "shelf_dry_goods__b03",
+      "side": "3. reyon adasi - bati yuzu",
+      "slot": "B"
+    },
+    {
+      "product_id": 12,
+      "product_name": "tat biber salcasi",
+      "shelf_block_id": "shelf_dry_goods__b03",
+      "side": "3. reyon adasi - bati yuzu",
+      "slot": "A"
+    },
+    {
+      "product_id": 1,
+      "product_name": "soke un",
+      "shelf_block_id": "shelf_dry_goods__b04",
+      "side": "3. reyon adasi - dogu yuzu",
+      "slot": "D"
+    },
+    {
+      "product_id": 2,
+      "product_name": "yayla yesil mercimek",
+      "shelf_block_id": "shelf_dry_goods__b04",
+      "side": "3. reyon adasi - dogu yuzu",
+      "slot": "C"
+    },
+    {
+      "product_id": 3,
+      "product_name": "duru pilavlik bulgur",
+      "shelf_block_id": "shelf_dry_goods__b04",
+      "side": "3. reyon adasi - dogu yuzu",
+      "slot": "B"
+    },
+    {
+      "product_id": 4,
+      "product_name": "tat baldo pirinc",
+      "shelf_block_id": "shelf_dry_goods__b04",
+      "side": "3. reyon adasi - dogu yuzu",
+      "slot": "A"
+    },
+    {
+      "product_id": 5,
+      "product_name": "migros asurelik bugday",
+      "shelf_block_id": "shelf_dry_goods__b05",
+      "side": "3. reyon adasi - dogu yuzu",
+      "slot": "D"
+    },
+    {
+      "product_id": 6,
+      "product_name": "migros yesil mercimek",
+      "shelf_block_id": "shelf_dry_goods__b05",
+      "side": "3. reyon adasi - dogu yuzu",
+      "slot": "C"
+    },
+    {
+      "product_id": 7,
+      "product_name": "migros fasulye",
+      "shelf_block_id": "shelf_dry_goods__b05",
+      "side": "3. reyon adasi - dogu yuzu",
+      "slot": "B"
+    },
+    {
+      "product_id": 8,
+      "product_name": "migros kirmizi mercimek",
+      "shelf_block_id": "shelf_dry_goods__b05",
+      "side": "3. reyon adasi - dogu yuzu",
+      "slot": "A"
+    },
+    {
+      "product_id": 9,
+      "product_name": "gewurz gurken kornison",
+      "shelf_block_id": "shelf_dry_goods__b06",
+      "side": "3. reyon adasi - dogu yuzu",
+      "slot": "D"
+    },
+    {
+      "product_id": 10,
+      "product_name": "burcu bezelye konservesi",
+      "shelf_block_id": "shelf_dry_goods__b06",
+      "side": "3. reyon adasi - dogu yuzu",
+      "slot": "C"
+    },
+    {
+      "product_id": 11,
+      "product_name": "migros domates salcasi",
+      "shelf_block_id": "shelf_dry_goods__b06",
+      "side": "3. reyon adasi - dogu yuzu",
+      "slot": "B"
+    },
+    {
+      "product_id": 12,
+      "product_name": "tat biber salcasi",
+      "shelf_block_id": "shelf_dry_goods__b06",
+      "side": "3. reyon adasi - dogu yuzu",
+      "slot": "A"
+    },
+    {
+      "product_id": 47,
+      "product_name": "dus jeli",
+      "shelf_block_id": "shelf_personal_care__b01",
+      "side": "4. reyon adasi - bati yuzu",
+      "slot": "A-D"
+    },
+    {
+      "product_id": 48,
+      "product_name": "deodorant",
+      "shelf_block_id": "shelf_personal_care__b02",
+      "side": "4. reyon adasi - bati yuzu",
+      "slot": "A-D"
+    },
+    {
+      "product_id": 49,
+      "product_name": "krem kavanoz",
+      "shelf_block_id": "shelf_personal_care__b03",
+      "side": "4. reyon adasi - bati yuzu",
+      "slot": "B,D"
+    },
+    {
+      "product_id": 50,
+      "product_name": "krem tup",
+      "shelf_block_id": "shelf_personal_care__b03",
+      "side": "4. reyon adasi - bati yuzu",
+      "slot": "A,C"
+    },
+    {
+      "product_id": 51,
+      "product_name": "sabun",
+      "shelf_block_id": "shelf_personal_care__b04",
+      "side": "4. reyon adasi - bati yuzu",
+      "slot": "C,D"
+    },
+    {
+      "product_id": 52,
+      "product_name": "kozmetik kutusu",
+      "shelf_block_id": "shelf_personal_care__b04",
+      "side": "4. reyon adasi - bati yuzu",
+      "slot": "A,B"
+    },
+    {
+      "product_id": 47,
+      "product_name": "dus jeli",
+      "shelf_block_id": "shelf_personal_care__b05",
+      "side": "4. reyon adasi - dogu yuzu",
+      "slot": "A-D"
+    },
+    {
+      "product_id": 48,
+      "product_name": "deodorant",
+      "shelf_block_id": "shelf_personal_care__b06",
+      "side": "4. reyon adasi - dogu yuzu",
+      "slot": "A-D"
+    },
+    {
+      "product_id": 49,
+      "product_name": "krem kavanoz",
+      "shelf_block_id": "shelf_personal_care__b07",
+      "side": "4. reyon adasi - dogu yuzu",
+      "slot": "B,D"
+    },
+    {
+      "product_id": 50,
+      "product_name": "krem tup",
+      "shelf_block_id": "shelf_personal_care__b07",
+      "side": "4. reyon adasi - dogu yuzu",
+      "slot": "A,C"
+    },
+    {
+      "product_id": 51,
+      "product_name": "sabun",
+      "shelf_block_id": "shelf_personal_care__b08",
+      "side": "4. reyon adasi - dogu yuzu",
+      "slot": "C,D"
+    },
+    {
+      "product_id": 52,
+      "product_name": "kozmetik kutusu",
+      "shelf_block_id": "shelf_personal_care__b08",
+      "side": "4. reyon adasi - dogu yuzu",
+      "slot": "A,B"
+    },
+    {
+      "product_id": 13,
+      "product_name": "deterjan peros",
+      "shelf_block_id": "shelf_cleaning__b01",
+      "side": "sol duvar - koridora bakiyor",
+      "slot": "D"
+    },
+    {
+      "product_id": 14,
+      "product_name": "deterjan ariel",
+      "shelf_block_id": "shelf_cleaning__b01",
+      "side": "sol duvar - koridora bakiyor",
+      "slot": "C"
+    },
+    {
+      "product_id": 15,
+      "product_name": "deterjan oxy",
+      "shelf_block_id": "shelf_cleaning__b01",
+      "side": "sol duvar - koridora bakiyor",
+      "slot": "B"
+    },
+    {
+      "product_id": 16,
+      "product_name": "deterjan omo",
+      "shelf_block_id": "shelf_cleaning__b01",
+      "side": "sol duvar - koridora bakiyor",
+      "slot": "A"
+    },
+    {
+      "product_id": 17,
+      "product_name": "sampuan elseve",
+      "shelf_block_id": "shelf_cleaning__b02",
+      "side": "sol duvar - koridora bakiyor",
+      "slot": "C,D"
+    },
+    {
+      "product_id": 18,
+      "product_name": "sampuan clear men",
+      "shelf_block_id": "shelf_cleaning__b02",
+      "side": "sol duvar - koridora bakiyor",
+      "slot": "A,B"
+    },
+    {
+      "product_id": 19,
+      "product_name": "dis macunu oral-b",
+      "shelf_block_id": "shelf_cleaning__b03",
+      "side": "sol duvar - koridora bakiyor",
+      "slot": "C,D"
+    },
+    {
+      "product_id": 20,
+      "product_name": "dis macunu signal",
+      "shelf_block_id": "shelf_cleaning__b03",
+      "side": "sol duvar - koridora bakiyor",
+      "slot": "A,B"
+    },
+    {
+      "product_id": 38,
+      "product_name": "assu su",
+      "shelf_block_id": "shelf_beverages__b01",
+      "side": "arka duvar - 1. sogutucu dolabi",
+      "slot": "alt"
+    },
+    {
+      "product_id": 39,
+      "product_name": "uludag limonata",
+      "shelf_block_id": "shelf_beverages__b01",
+      "side": "arka duvar - 1. sogutucu dolabi",
+      "slot": "orta"
+    },
+    {
+      "product_id": 40,
+      "product_name": "red bull",
+      "shelf_block_id": "shelf_beverages__b01",
+      "side": "arka duvar - 1. sogutucu dolabi",
+      "slot": "ust"
+    },
+    {
+      "product_id": 41,
+      "product_name": "camlica portakal gazoz",
+      "shelf_block_id": "shelf_beverages__b02",
+      "side": "arka duvar - 2. sogutucu dolabi",
+      "slot": "alt"
+    },
+    {
+      "product_id": 42,
+      "product_name": "fruko gazoz",
+      "shelf_block_id": "shelf_beverages__b02",
+      "side": "arka duvar - 2. sogutucu dolabi",
+      "slot": "orta"
+    },
+    {
+      "product_id": 43,
+      "product_name": "coca cola",
+      "shelf_block_id": "shelf_beverages__b02",
+      "side": "arka duvar - 2. sogutucu dolabi",
+      "slot": "ust"
+    },
+    {
+      "product_id": 44,
+      "product_name": "tamek seftali nektari",
+      "shelf_block_id": "shelf_beverages__b03",
+      "side": "arka duvar - 3. sogutucu dolabi",
+      "slot": "alt"
+    },
+    {
+      "product_id": 45,
+      "product_name": "dimes meyve suyu",
+      "shelf_block_id": "shelf_beverages__b03",
+      "side": "arka duvar - 3. sogutucu dolabi",
+      "slot": "orta"
+    },
+    {
+      "product_id": 46,
+      "product_name": "eker kefir",
+      "shelf_block_id": "shelf_beverages__b03",
+      "side": "arka duvar - 3. sogutucu dolabi",
+      "slot": "ust"
+    },
+    {
+      "product_id": 33,
+      "product_name": "elma",
+      "shelf_block_id": "shelf_produce__b01",
+      "side": "meyve kasasi - dort taraftan erisilir",
+      "slot": "kasa"
+    },
+    {
+      "product_id": 34,
+      "product_name": "brokoli",
+      "shelf_block_id": "shelf_produce__b02",
+      "side": "meyve kasasi - dort taraftan erisilir",
+      "slot": "kasa"
+    },
+    {
+      "product_id": 35,
+      "product_name": "karpuz",
+      "shelf_block_id": "shelf_produce__b03",
+      "side": "meyve kasasi - dort taraftan erisilir",
+      "slot": "kasa"
+    },
+    {
+      "product_id": 36,
+      "product_name": "muz",
+      "shelf_block_id": "shelf_produce__b04",
+      "side": "meyve kasasi - dort taraftan erisilir",
+      "slot": "kasa"
+    },
+    {
+      "product_id": 37,
+      "product_name": "havuc",
+      "shelf_block_id": "shelf_produce__b05",
+      "side": "meyve kasasi - dort taraftan erisilir",
+      "slot": "kasa"
+    }
+  ]
+}

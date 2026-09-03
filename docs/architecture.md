@@ -15,7 +15,7 @@
 ### Mobil (mobile/) — çevrimdışı istemci
 
 ## Veri akışı
-<!-- catalog.json + StoreMap → db → backend → mobil -->
+<!-- product_mapping.json + store.json → db importer → db → backend → mobil -->
 
 ## Mimari kural
 İş mantığı saf Python modüllerinde (routing, assistant, db). backend yalnızca

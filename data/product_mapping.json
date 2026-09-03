@@ -1,0 +1,426 @@
+{
+  "aciklama": "ShelfSense urun tablosu. id -> urun. blender/scripts/store_layout.py URUNLER tablosundan OTOMATIK URETILIR, elle degistirilmez.",
+  "urun_sayisi": 52,
+  "id_araligi": [
+    1,
+    52
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "soke un",
+      "category": "temel_gida",
+      "shelf": "shelf_dry_goods",
+      "unit": "kg",
+      "slot": "D"
+    },
+    {
+      "id": 2,
+      "name": "yayla yesil mercimek",
+      "category": "temel_gida",
+      "shelf": "shelf_dry_goods",
+      "unit": "kg",
+      "slot": "C"
+    },
+    {
+      "id": 3,
+      "name": "duru pilavlik bulgur",
+      "category": "temel_gida",
+      "shelf": "shelf_dry_goods",
+      "unit": "kg",
+      "slot": "B"
+    },
+    {
+      "id": 4,
+      "name": "tat baldo pirinc",
+      "category": "temel_gida",
+      "shelf": "shelf_dry_goods",
+      "unit": "kg",
+      "slot": "A"
+    },
+    {
+      "id": 5,
+      "name": "migros asurelik bugday",
+      "category": "temel_gida",
+      "shelf": "shelf_dry_goods",
+      "unit": "kg",
+      "slot": "D"
+    },
+    {
+      "id": 6,
+      "name": "migros yesil mercimek",
+      "category": "temel_gida",
+      "shelf": "shelf_dry_goods",
+      "unit": "kg",
+      "slot": "C"
+    },
+    {
+      "id": 7,
+      "name": "migros fasulye",
+      "category": "temel_gida",
+      "shelf": "shelf_dry_goods",
+      "unit": "kg",
+      "slot": "B"
+    },
+    {
+      "id": 8,
+      "name": "migros kirmizi mercimek",
+      "category": "temel_gida",
+      "shelf": "shelf_dry_goods",
+      "unit": "kg",
+      "slot": "A"
+    },
+    {
+      "id": 9,
+      "name": "gewurz gurken kornison",
+      "category": "temel_gida",
+      "shelf": "shelf_dry_goods",
+      "unit": "adet",
+      "slot": "D"
+    },
+    {
+      "id": 10,
+      "name": "burcu bezelye konservesi",
+      "category": "temel_gida",
+      "shelf": "shelf_dry_goods",
+      "unit": "adet",
+      "slot": "C"
+    },
+    {
+      "id": 11,
+      "name": "migros domates salcasi",
+      "category": "temel_gida",
+      "shelf": "shelf_dry_goods",
+      "unit": "adet",
+      "slot": "B"
+    },
+    {
+      "id": 12,
+      "name": "tat biber salcasi",
+      "category": "temel_gida",
+      "shelf": "shelf_dry_goods",
+      "unit": "adet",
+      "slot": "A"
+    },
+    {
+      "id": 13,
+      "name": "deterjan peros",
+      "category": "temizlik",
+      "shelf": "shelf_cleaning",
+      "unit": "adet",
+      "slot": "D"
+    },
+    {
+      "id": 14,
+      "name": "deterjan ariel",
+      "category": "temizlik",
+      "shelf": "shelf_cleaning",
+      "unit": "adet",
+      "slot": "C"
+    },
+    {
+      "id": 15,
+      "name": "deterjan oxy",
+      "category": "temizlik",
+      "shelf": "shelf_cleaning",
+      "unit": "adet",
+      "slot": "B"
+    },
+    {
+      "id": 16,
+      "name": "deterjan omo",
+      "category": "temizlik",
+      "shelf": "shelf_cleaning",
+      "unit": "adet",
+      "slot": "A"
+    },
+    {
+      "id": 17,
+      "name": "sampuan elseve",
+      "category": "temizlik",
+      "shelf": "shelf_cleaning",
+      "unit": "adet",
+      "slot": "C,D"
+    },
+    {
+      "id": 18,
+      "name": "sampuan clear men",
+      "category": "temizlik",
+      "shelf": "shelf_cleaning",
+      "unit": "adet",
+      "slot": "A,B"
+    },
+    {
+      "id": 19,
+      "name": "dis macunu oral-b",
+      "category": "temizlik",
+      "shelf": "shelf_cleaning",
+      "unit": "adet",
+      "slot": "C,D"
+    },
+    {
+      "id": 20,
+      "name": "dis macunu signal",
+      "category": "temizlik",
+      "shelf": "shelf_cleaning",
+      "unit": "adet",
+      "slot": "A,B"
+    },
+    {
+      "id": 21,
+      "name": "peynir kare buyuk",
+      "category": "sut_sarkuteri",
+      "shelf": "shelf_dairy",
+      "unit": "paket",
+      "slot": "D"
+    },
+    {
+      "id": 22,
+      "name": "peynir kare kucuk",
+      "category": "sut_sarkuteri",
+      "shelf": "shelf_dairy",
+      "unit": "paket",
+      "slot": "C"
+    },
+    {
+      "id": 23,
+      "name": "peynir ucgen buyuk",
+      "category": "sut_sarkuteri",
+      "shelf": "shelf_dairy",
+      "unit": "paket",
+      "slot": "B"
+    },
+    {
+      "id": 24,
+      "name": "peynir ucgen kucuk",
+      "category": "sut_sarkuteri",
+      "shelf": "shelf_dairy",
+      "unit": "paket",
+      "slot": "A"
+    },
+    {
+      "id": 25,
+      "name": "yogurt icim 5 kg",
+      "category": "sut_sarkuteri",
+      "shelf": "shelf_dairy",
+      "unit": "kg",
+      "slot": "D"
+    },
+    {
+      "id": 26,
+      "name": "yogurt eker 5 kg",
+      "category": "sut_sarkuteri",
+      "shelf": "shelf_dairy",
+      "unit": "kg",
+      "slot": "C"
+    },
+    {
+      "id": 27,
+      "name": "yogurt icim 3 kg",
+      "category": "sut_sarkuteri",
+      "shelf": "shelf_dairy",
+      "unit": "kg",
+      "slot": "B"
+    },
+    {
+      "id": 28,
+      "name": "yogurt eker 3 kg",
+      "category": "sut_sarkuteri",
+      "shelf": "shelf_dairy",
+      "unit": "kg",
+      "slot": "A"
+    },
+    {
+      "id": 29,
+      "name": "sut sek",
+      "category": "sut_sarkuteri",
+      "shelf": "shelf_dairy",
+      "unit": "litre",
+      "slot": "D"
+    },
+    {
+      "id": 30,
+      "name": "sut icim",
+      "category": "sut_sarkuteri",
+      "shelf": "shelf_dairy",
+      "unit": "litre",
+      "slot": "C"
+    },
+    {
+      "id": 31,
+      "name": "sut halk",
+      "category": "sut_sarkuteri",
+      "shelf": "shelf_dairy",
+      "unit": "litre",
+      "slot": "B"
+    },
+    {
+      "id": 32,
+      "name": "sut migros",
+      "category": "sut_sarkuteri",
+      "shelf": "shelf_dairy",
+      "unit": "litre",
+      "slot": "A"
+    },
+    {
+      "id": 33,
+      "name": "elma",
+      "category": "meyve_sebze",
+      "shelf": "shelf_produce",
+      "unit": "kg",
+      "slot": "kasa"
+    },
+    {
+      "id": 34,
+      "name": "brokoli",
+      "category": "meyve_sebze",
+      "shelf": "shelf_produce",
+      "unit": "adet",
+      "slot": "kasa"
+    },
+    {
+      "id": 35,
+      "name": "karpuz",
+      "category": "meyve_sebze",
+      "shelf": "shelf_produce",
+      "unit": "adet",
+      "slot": "kasa"
+    },
+    {
+      "id": 36,
+      "name": "muz",
+      "category": "meyve_sebze",
+      "shelf": "shelf_produce",
+      "unit": "kg",
+      "slot": "kasa"
+    },
+    {
+      "id": 37,
+      "name": "havuc",
+      "category": "meyve_sebze",
+      "shelf": "shelf_produce",
+      "unit": "kg",
+      "slot": "kasa"
+    },
+    {
+      "id": 38,
+      "name": "assu su",
+      "category": "icecek",
+      "shelf": "shelf_beverages",
+      "unit": "adet",
+      "slot": "alt"
+    },
+    {
+      "id": 39,
+      "name": "uludag limonata",
+      "category": "icecek",
+      "shelf": "shelf_beverages",
+      "unit": "adet",
+      "slot": "orta"
+    },
+    {
+      "id": 40,
+      "name": "red bull",
+      "category": "icecek",
+      "shelf": "shelf_beverages",
+      "unit": "adet",
+      "slot": "ust"
+    },
+    {
+      "id": 41,
+      "name": "camlica portakal gazoz",
+      "category": "icecek",
+      "shelf": "shelf_beverages",
+      "unit": "adet",
+      "slot": "alt"
+    },
+    {
+      "id": 42,
+      "name": "fruko gazoz",
+      "category": "icecek",
+      "shelf": "shelf_beverages",
+      "unit": "adet",
+      "slot": "orta"
+    },
+    {
+      "id": 43,
+      "name": "coca cola",
+      "category": "icecek",
+      "shelf": "shelf_beverages",
+      "unit": "adet",
+      "slot": "ust"
+    },
+    {
+      "id": 44,
+      "name": "tamek seftali nektari",
+      "category": "icecek",
+      "shelf": "shelf_beverages",
+      "unit": "adet",
+      "slot": "alt"
+    },
+    {
+      "id": 45,
+      "name": "dimes meyve suyu",
+      "category": "icecek",
+      "shelf": "shelf_beverages",
+      "unit": "adet",
+      "slot": "orta"
+    },
+    {
+      "id": 46,
+      "name": "eker kefir",
+      "category": "icecek",
+      "shelf": "shelf_beverages",
+      "unit": "adet",
+      "slot": "ust"
+    },
+    {
+      "id": 47,
+      "name": "dus jeli",
+      "category": "kisisel_bakim",
+      "shelf": "shelf_personal_care",
+      "unit": "adet",
+      "slot": "A-D"
+    },
+    {
+      "id": 48,
+      "name": "deodorant",
+      "category": "kisisel_bakim",
+      "shelf": "shelf_personal_care",
+      "unit": "adet",
+      "slot": "A-D"
+    },
+    {
+      "id": 49,
+      "name": "krem kavanoz",
+      "category": "kisisel_bakim",
+      "shelf": "shelf_personal_care",
+      "unit": "adet",
+      "slot": "B,D"
+    },
+    {
+      "id": 50,
+      "name": "krem tup",
+      "category": "kisisel_bakim",
+      "shelf": "shelf_personal_care",
+      "unit": "adet",
+      "slot": "A,C"
+    },
+    {
+      "id": 51,
+      "name": "sabun",
+      "category": "kisisel_bakim",
+      "shelf": "shelf_personal_care",
+      "unit": "adet",
+      "slot": "C,D"
+    },
+    {
+      "id": 52,
+      "name": "kozmetik kutusu",
+      "category": "kisisel_bakim",
+      "shelf": "shelf_personal_care",
+      "unit": "adet",
+      "slot": "A,B"
+    }
+  ]
+}
