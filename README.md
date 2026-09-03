@@ -9,11 +9,11 @@ telefon kamerasıyla ürün tespiti (YOLO) doğrulama sağlar. 4 kişilik ekip,
 
 ## Tek doğru kaynak
 
-- **`data/catalog.json` ve `shelfsense/contracts/` tek doğru kaynaktır** —
-  kimse kendi ürün listesini veya kendi veri şemasını tutmaz. Ürünler, YOLO
-  sınıfları, LLM ayrıştırma hedefi ve veritabanı bu iki kaynaktan türetilir.
-- **Mağaza koda gömülü değildir**: raf koordinatları ve sayıları JSON'dan
-  (`StoreMap`) gelir; mağaza değişince kod değişmez, JSON değişir.
+- **Ürün kaynağı `data/product_mapping.json`, mağaza kaynağı
+  `data/store.json` dosyasıdır.** PostgreSQL yüklemeleri yalnızca
+  `shelfsense.db.importer` üzerinden yapılır.
+- **Mağaza koda gömülü değildir**: raf koordinatları ve sayıları mağaza JSON
+  kaynağından gelir; mağaza değişince kod değişmez, JSON değişir.
 
 ## Sözleşme durumu: TASLAK
 
@@ -55,7 +55,7 @@ pip install -e . && pip install -r requirements.txt
 cp .env.example .env
 docker compose up -d db
 docker compose ps
-python -m alembic upgrade head
+docker compose run --rm flyway migrate
 ```
 
 `docker compose ps` çıktısında `db` servisinin `healthy` olduğundan emin olun.

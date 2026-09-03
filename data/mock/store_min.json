@@ -36,9 +36,9 @@
   "placements": [
     { "product_id": 1, "shelf_block_id": "shelf_dry_goods__b01", "slot": "1" },
     { "product_id": 2, "shelf_block_id": "shelf_dry_goods__b02", "slot": "1" },
-    { "product_id": 5, "shelf_block_id": "shelf_cleaning__b01", "slot": "1" },
-    { "product_id": 8, "shelf_block_id": "shelf_dairy__b01", "slot": "1" },
-    { "product_id": 9, "shelf_block_id": "shelf_dairy__b02", "slot": "1" },
-    { "product_id": 16, "shelf_block_id": "shelf_beverages__b01", "slot": "1" }
+    { "product_id": 13, "shelf_block_id": "shelf_cleaning__b01", "slot": "1" },
+    { "product_id": 21, "shelf_block_id": "shelf_dairy__b01", "slot": "1" },
+    { "product_id": 25, "shelf_block_id": "shelf_dairy__b02", "slot": "1" },
+    { "product_id": 38, "shelf_block_id": "shelf_beverages__b01", "slot": "1" }
   ]
 }

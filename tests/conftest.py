@@ -1,4 +1,5 @@
 """Ortak pytest fixture'ları: repo yolları ve JSON yükleyiciler."""
+
 import json
 from pathlib import Path
 
@@ -9,9 +10,9 @@ DATA_DIR = REPO_ROOT / "data"
 
 
 @pytest.fixture
-def catalog() -> dict:
-    """data/catalog.json içeriğini dict olarak döndürür (tek doğru kaynak)."""
-    return json.loads((DATA_DIR / "catalog.json").read_text("utf-8"))
+def product_mapping() -> dict:
+    """Yetkili data/product_mapping.json içeriğini döndürür."""
+    return json.loads((DATA_DIR / "product_mapping.json").read_text("utf-8"))
 
 
 @pytest.fixture
